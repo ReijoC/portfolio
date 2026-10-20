@@ -9,6 +9,7 @@ const ogImage = new URL(`${base}${site.ogImage}`, Astro.site).href;
 <html lang={site.lang}>
   <head>
     <meta charset="utf-8" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{site.title}</title>
     <meta name="description" content={site.description} />
@@ -25,5 +26,33 @@ const ogImage = new URL(`${base}${site.ogImage}`, Astro.site).href;
   </head>
   <body>
     <slot />
+    <script>
+      // Reveal blocks as they scroll into view.
+      const targets = document.querySelectorAll<HTMLElement>(
+        '.section-head, .hero-text, .hero-art, .card, .steps > li, .timeline > li',
+      );
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || !('IntersectionObserver' in window)) {
+        targets.forEach((t) => t.classList.add('is-visible'));
+      } else {
+        targets.forEach((t) => {
+          t.classList.add('reveal');
+          const siblings = t.parentElement ? [...t.parentElement.children] : [];
+          t.style.setProperty('--reveal-delay', `${Math.min(siblings.indexOf(t), 6) * 70}ms`);
+        });
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              const el = e.target as HTMLElement;
+              el.classList.add('is-visible');
+              io.unobserve(el);
+              // Drop the reveal transition afterwards so hover effects stay snappy.
+              setTimeout(() => el.classList.remove('reveal'), 1500);
+            }
+          }
+        }, { rootMargin: '0px 0px -8% 0px' });
+        targets.forEach((t) => io.observe(t));
+      }
+    </script>
   </body>
 </html>

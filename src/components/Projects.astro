@@ -1,5 +1,6 @@
 ---
-import { Picture } from 'astro:assets';
+import { Picture, getImage } from 'astro:assets';
+import Icon from './Icon.astro';
 import type { ImageMetadata } from 'astro';
 import content from '../data/content.json';
 
@@ -11,9 +12,14 @@ const load = (file: string) => {
   if (!img) throw new Error(`Project image not found: src/assets/projects/${file}`);
   return img;
 };
-const projects = content.projects.map((p) => ({
-  ...p,
-  images: p.images.map((i) => ({ ...i, src: load(i.file) })),
+const projects = await Promise.all(content.projects.map(async (p) => {
+  const imgs = await Promise.all(p.images.map(async (i) => {
+    const src = load(i.file);
+    // Largest variant for the lightbox.
+    const full = await getImage({ src, width: Math.min(2400, src.width), format: 'webp' });
+    return { ...i, src, full: full.src };
+  }));
+  return { ...p, images: imgs };
 }));
 ---
 <section id="portfolio" class="section">
@@ -46,12 +52,18 @@ const projects = content.projects.map((p) => ({
             )}
           </div>
 
-          <div class="gallery" data-gallery>
+          <div class="gallery" data-gallery
+            data-images={JSON.stringify(p.images.map((img) => ({
+              src: img.full, alt: `${p.name}: ${img.caption}`, caption: `${p.name} · ${img.caption}`,
+            })))}>
             <div class="main">
               {p.images.map((img, i) => (
                 <figure hidden={i !== 0} data-slide>
-                  <Picture src={img.src} alt={`${p.name}: ${img.caption}`} formats={['avif', 'webp']}
-                    widths={[600, 1200, 2400]} sizes="(max-width: 1023px) 100vw, 640px" loading="lazy" />
+                  <button type="button" class="zoom" data-zoom={i} aria-label={`Suurenda pilti: ${img.caption}`}>
+                    <Picture src={img.src} alt={`${p.name}: ${img.caption}`} formats={['avif', 'webp']}
+                      widths={[600, 1200, 2400]} sizes="(max-width: 1023px) 100vw, 640px" loading="lazy" />
+                    <span class="zoom-hint" aria-hidden="true"><Icon name="zoom" size={20} /></span>
+                  </button>
                   <figcaption>{img.caption}</figcaption>
                 </figure>
               ))}
@@ -119,6 +131,35 @@ const projects = content.projects.map((p) => ({
   .btn { margin-top: 4px; }
 
   .main figure { margin: 0; }
+  .main figure:not([hidden]) { animation: fade-in 0.4s ease; }
+  @keyframes fade-in { from { opacity: 0; transform: scale(0.985); } to { opacity: 1; transform: none; } }
+  .zoom {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+    border-radius: var(--radius);
+  }
+  .zoom :global(img) { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+  .zoom:hover :global(img) { transform: translateY(-4px); box-shadow: 0 28px 60px rgba(27, 31, 59, 0.22); }
+  .zoom-hint {
+    position: absolute;
+    right: 14px; bottom: 14px;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--heading);
+    display: grid; place-items: center;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.25s, transform 0.25s;
+  }
+  .zoom:hover .zoom-hint, .zoom:focus-visible .zoom-hint { opacity: 1; transform: none; }
+  @media (hover: none) { .zoom-hint { opacity: 1; transform: none; } }
   .main :global(img) {
     width: 100%;
     aspect-ratio: 16 / 10;
@@ -144,7 +185,8 @@ const projects = content.projects.map((p) => ({
     opacity: 0.6;
     transition: opacity 0.2s, border-color 0.2s;
   }
-  .thumbs button:hover { opacity: 1; }
+  .thumbs button:hover { opacity: 1; transform: translateY(-2px); }
+  .thumbs button { transition: opacity 0.2s, border-color 0.2s, transform 0.2s; }
   .thumbs button[aria-pressed='true'] { opacity: 1; border-color: var(--accent); }
   .thumbs :global(img) { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px; }
 
@@ -176,5 +218,8 @@ const projects = content.projects.map((p) => ({
       slides.forEach((s, j) => (s.hidden = i !== j));
       thumbs.forEach((b, j) => b.setAttribute('aria-pressed', String(i === j)));
     }));
+    const images = JSON.parse(g.dataset.images!);
+    g.querySelectorAll<HTMLButtonElement>('[data-zoom]').forEach((b) =>
+      b.addEventListener('click', () => window.openLightbox?.(images, Number(b.dataset.zoom), b)));
   }
 </script>
