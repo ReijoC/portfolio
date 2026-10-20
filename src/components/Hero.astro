@@ -41,7 +41,7 @@ const base = import.meta.env.BASE_URL;
       </svg>
     </div>
 
-    <div class="hero-social"><SocialLinks vertical /></div>
+    {content.social.length > 0 && <div class="hero-social"><SocialLinks vertical /></div>}
   </div>
 </section>
 

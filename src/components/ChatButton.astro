@@ -1,0 +1,86 @@
+---
+import content from '../data/content.json';
+import Icon from './Icon.astro';
+---
+<div class="chat-fab">
+  <span class="bubble" aria-hidden="true">Küsi lisa</span>
+  <a class="chat" href={`mailto:${content.person.email}`}>
+    <Icon name="chat" />
+    <span class="sr-only">Küsi lisa: saada mulle e-kiri</span>
+  </a>
+</div>
+
+<style>
+  .chat-fab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .chat {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: grid; place-items: center;
+    box-shadow: var(--shadow-accent);
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  .chat:hover { transform: translateY(-2px); background: var(--accent-dark); }
+  .bubble {
+    position: relative;
+    background: var(--surface);
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    padding: 10px 16px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(27, 31, 59, 0.15);
+    opacity: 0;
+    transform: translateX(10px) scale(0.9);
+    transform-origin: right center;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  /* Tail pointing at the button. */
+  .bubble::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    width: 12px; height: 12px;
+    background: var(--surface);
+    transform: translateY(-50%) rotate(45deg);
+    border-radius: 2px;
+  }
+  .chat-fab.show .bubble { opacity: 1; transform: none; }
+  @media (max-width: 767px) {
+    .chat-fab { right: 16px; bottom: 16px; }
+  }
+</style>
+
+<script>
+  // Show the bubble while the work experience section is on screen, and again at the very end of the page.
+  const fab = document.querySelector<HTMLElement>('.chat-fab')!;
+  const section = document.getElementById('experience');
+  const update = () => {
+    const vh = window.innerHeight;
+    const r = section?.getBoundingClientRect();
+    const inSection = !!r && r.top < vh * 0.7 && r.bottom > vh * 0.3;
+    const atEnd = window.scrollY + vh >= document.documentElement.scrollHeight - 8;
+    fab.classList.toggle('show', inSection || atEnd);
+  };
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { update(); ticking = false; });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+</script>

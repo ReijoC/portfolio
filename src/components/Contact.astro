@@ -24,11 +24,11 @@ const { person, contact } = content;
   .lead strong { color: var(--heading); font-weight: 600; }
   .mail { display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
   .mail a {
-    font-size: clamp(22px, 4vw, 36px);
+    font-size: clamp(18px, 5.2vw, 36px);
     font-weight: 700;
     color: var(--heading);
     text-decoration: none;
-    word-break: break-all;
+    overflow-wrap: anywhere;
   }
   .mail a:hover { color: var(--accent); }
   .copy {
