@@ -39,14 +39,17 @@ src/
   styles/global.css      disainitokenid ja ühised stiilid
 ```
 
-## Hostimine
+## Avaldamine
 
-Ehitus annab puhta staatilise kausta `dist/`, mis sobib igale staatilisele hostile
-(GitHub Pages, Netlify, Cloudflare Pages, Vercel). Kui leht ei asu domeeni juures, vaid alamkaustas
-(nt GitHub Pages `kasutaja.github.io/portfolio`), sea ehituse ajal `SITE_URL` ja `BASE_PATH`:
+Iga push `main` harusse ehitab lehe ja avaldab selle GitHub Pagesis aadressil
+https://reijoc.github.io/portfolio/ (töövoog `.github/workflows/deploy.yml`).
+Repo seadetes peab olema Settings → Pages → Source: **GitHub Actions**.
+
+Ehitus annab puhta staatilise kausta `dist/`, mis sobib ka igale muule staatilisele hostile.
+Alamkaustas hostimisel sea ehituse ajal `SITE_URL` ja `BASE_PATH`:
 
 ```sh
-SITE_URL=https://kasutaja.github.io BASE_PATH=/portfolio npm run build
+SITE_URL=https://reijoc.github.io BASE_PATH=/portfolio/ npm run build
 ```
 
 Arendusspec: https://claude.ai/code/artifact/07b2fbea-fa26-458c-aa8e-672cc2f10cc8
