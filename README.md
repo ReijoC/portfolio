@@ -22,12 +22,12 @@ on failis [`src/data/content.json`](src/data/content.json). Koodi pole vaja puut
 | --- | --- |
 | Projektid | `content.json` → `projects`: nimi, aasta, staatus, kirjeldus, roll, CV-tekst, tehnoloogiad, link ja pildid koos allkirjadega. |
 | Projektipildid | `src/assets/projects/<projekt>/` (PNG/JPG, 16:10, vähemalt 2400 × 1500 px). Ehitus teeb neist ise AVIF/WebP variandid laiustega 600, 1200 ja 2400 px. |
-| CV | `public/cv.pdf` (praegu ajutine fail) |
+| CV | pane PDF kausta `public/` ja failinimi `content.json` välja `person.cv` alla; tühja välja korral „Laadi CV“ nuppu ei näidata |
 | Open Graph pilt | `public/og-image.png` (1200 × 630) |
 | Favicon | `public/favicon.svg` |
 | Värvid, fondid, vahed | `src/styles/global.css` (`:root` muutujad) |
 
-Kohatäited, mis tuleb veel päris sisuga asendada: e-post, LinkedIni link, oskuste protsendid, haridus, tagasisided ja `public/cv.pdf`.
+Veel täitmata: oskuste protsendid on hinnangulised, tagasisidede plokk on peidetud kuni `testimonials` on tühi, CV PDF puudub.
 
 ## Ülesehitus
 

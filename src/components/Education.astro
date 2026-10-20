@@ -16,7 +16,7 @@ import Decorations from './Decorations.astro';
           <article class="card item">
             <span class="eyebrow">{e.school} · {e.years}</span>
             <h3>{e.degree}</h3>
-            <p>{e.text}</p>
+            {e.text && <p>{e.text}</p>}
           </article>
         </li>
       ))}

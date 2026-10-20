@@ -1,16 +1,16 @@
 {
   "site": {
     "lang": "et",
-    "title": "Reijo | Full-stack-arendaja",
-    "description": "Reijo portfoolio: veebirakendused, kasutajaliidesed ja tagarakendused.",
+    "title": "Reijo Pajussaar | Full-stack-arendaja",
+    "description": "Reijo Pajussaare portfoolio: masinaehituse taustaga arendaja, kes ehitab veebirakendusi ideest töötava tooteni.",
     "ogImage": "og-image.png"
   },
   "person": {
-    "name": "Reijo",
+    "name": "Reijo Pajussaar",
     "role": "Full-stack-arendaja",
-    "intro": "Ehitan veebirakendusi ideest töötava tooteni: kasutajaliides, andmed, serveripool ja kõik nende vahel.",
-    "email": "hello@example.com",
-    "cv": "cv.pdf"
+    "intro": "Masinaehituse taustaga arendaja, kes ehitab veebirakendusi ideest töötava tooteni: kasutajaliides, andmed, serveripool ja kõik nende vahel.",
+    "email": "reijopajussaar@gmail.com",
+    "cv": ""
   },
   "nav": [
     {
@@ -35,11 +35,6 @@
       "name": "GitHub",
       "url": "https://github.com/ReijoC",
       "icon": "github"
-    },
-    {
-      "name": "LinkedIn",
-      "url": "https://www.linkedin.com/",
-      "icon": "linkedin"
     }
   ],
   "services": [
@@ -96,13 +91,6 @@
       "tone": "purple"
     },
     {
-      "name": "Node.js",
-      "level": 80,
-      "text": "Serveriliidesed, taustatööde järjekorrad ja integratsioonid.",
-      "short": "No",
-      "tone": "green"
-    },
-    {
       "name": "PostgreSQL",
       "level": 75,
       "text": "Andmemudelid, Drizzle ORM ja Neon.",
@@ -117,10 +105,17 @@
       "tone": "yellow"
     },
     {
-      "name": "Cloudflare",
-      "level": 75,
-      "text": "Workers, D1 ja R2 kiireks ja odavaks avaldamiseks.",
-      "short": "Cf",
+      "name": "SolidWorks ja CAD",
+      "level": 85,
+      "text": "Metallkonstruktsioonide projekteerimine ning tootmis- ja paigaldusjoonised (SolidWorks, Catia V5, Fusion 360).",
+      "short": "Sw",
+      "tone": "green"
+    },
+    {
+      "name": "Tugevusanalüüs",
+      "level": 80,
+      "text": "FEM-analüüsid Ansysega ja käsitsi tugevusarvutused.",
+      "short": "An",
       "tone": "pink"
     }
   ],
@@ -269,38 +264,25 @@
   ],
   "education": [
     {
-      "school": "Ülikool",
-      "degree": "Eriala või kraad",
-      "years": "2018 – 2021",
-      "text": "Kohatäide: lisa siia oma haridus."
+      "school": "Tallinna Tehnikakõrgkool",
+      "degree": "Masinaehitus",
+      "years": "2019 – 2023",
+      "text": "Lõputöö: terasest treppide ja trepipiirete projekteerimise automatiseerimine. Valmis graafilise kasutajaliidesega tarkvaralahendus, mis automatiseeris treppide projekteerimise."
     },
     {
-      "school": "Kool",
-      "degree": "Eriala või kraad",
-      "years": "2015 – 2018",
-      "text": "Kohatäide: lisa siia oma haridus."
+      "school": "Tallinna Tehnikaülikool",
+      "degree": "IT-süsteemide arendus",
+      "years": "2017 – 2018",
+      "text": "Programmeerimise ja infosüsteemide arenduse alused."
     },
     {
-      "school": "Kursus",
-      "degree": "Täiendkoolitus",
-      "years": "2024",
-      "text": "Kohatäide: lisa siia oma kursused."
+      "school": "Kadrina Keskkool",
+      "degree": "Keskharidus",
+      "years": "2016",
+      "text": ""
     }
   ],
-  "testimonials": [
-    {
-      "name": "Nimi Perenimi",
-      "role": "Ametikoht",
-      "quote": "Kohatäide: siia tuleb päris tagasiside koos inimese nõusolekuga.",
-      "tone": "pink"
-    },
-    {
-      "name": "Nimi Perenimi",
-      "role": "Ametikoht",
-      "quote": "Kohatäide: teine tagasiside.",
-      "tone": "blue"
-    }
-  ],
+  "testimonials": [],
   "contact": {
     "lead": "Kas sul on projekti idee?",
     "cta": "Kirjuta mulle"

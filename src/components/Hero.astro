@@ -14,7 +14,7 @@ const base = import.meta.env.BASE_URL;
       <p>{person.intro}</p>
       <div class="actions">
         <a class="btn btn-primary" href="#contact">Võta ühendust</a>
-        <a class="btn btn-outline" href={`${base}${person.cv}`} download>Laadi CV</a>
+        {person.cv && <a class="btn btn-outline" href={`${base}${person.cv}`} download>Laadi CV</a>}
       </div>
     </div>
 
