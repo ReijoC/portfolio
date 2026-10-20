@@ -14,14 +14,12 @@ const path = Array.from({ length: 41 }, (_, i) => {
 }).join(' ');
 const end = { x: 94, y: curveY(1.03) };
 const first = skills[0];
-const R = 26;
-const C = 2 * Math.PI * R;
 ---
 <section id="skills" class="section">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Oskused</span>
-      <h2 class="section-title">Peamised tööriistad</h2>
+      <span class="eyebrow">Tehnilised oskused</span>
+      <h2 class="section-title">Tööriistad ja meetodid</h2>
     </div>
 
     <div class="stage" data-skills={JSON.stringify(skills)}>
@@ -32,24 +30,18 @@ const C = 2 * Math.PI * R;
       <span class="arrow" style={`left:${end.x}%;top:${end.y}%`} aria-hidden="true"></span>
 
       <div class="card skill-card" aria-live="polite">
-        <svg class="ring" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
-          <circle cx="32" cy="32" r={R} fill="none" stroke="#eef0f7" stroke-width="6" />
-          <circle class="ring-value" cx="32" cy="32" r={R} fill="none" stroke="var(--accent)"
-            stroke-width="6" stroke-linecap="round" transform="rotate(-90 32 32)"
-            stroke-dasharray={C} stroke-dashoffset={C * (1 - first.level / 100)} data-c={C} />
-        </svg>
-        <span class="ring-label"><span data-field="level">{first.level}</span>%</span>
-        <div>
-          <h3 data-field="name">{first.name}</h3>
-          <p data-field="text">{first.text}</p>
-        </div>
+        <h3 data-field="name">{first.name}</h3>
+        <ul class="chips" data-field="items">
+          {first.items.map((i) => <li>{i}</li>)}
+        </ul>
+        <p class="note" data-field="note" hidden={!first.note}>{first.note}</p>
       </div>
 
       <ul class="skill-list" role="list">
         {skills.map((s, i) => (
           <li style={`left:${points[i].x}%;top:${points[i].y}%`}>
             <button type="button" class={`skill tone-${s.tone}`} data-index={i}
-              aria-pressed={i === 0 ? 'true' : 'false'} aria-label={`${s.name}, ${s.level}%`}>
+              aria-pressed={i === 0 ? 'true' : 'false'} aria-label={s.name}>
               {s.short}
             </button>
           </li>
@@ -60,7 +52,7 @@ const C = 2 * Math.PI * R;
 </section>
 
 <style>
-  .stage { position: relative; height: 380px; }
+  .stage { position: relative; height: 420px; }
   .curve { position: absolute; inset: 0; width: 100%; height: 100%; }
   .arrow {
     position: absolute;
@@ -89,22 +81,19 @@ const C = 2 * Math.PI * R;
   .skill-card {
     position: absolute;
     top: 0; left: 0;
-    width: min(340px, 100%);
+    width: min(440px, 100%);
     padding: 24px;
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    gap: 16px;
-    align-items: center;
   }
-  .ring { grid-row: 1; grid-column: 1; }
-  .ring-value { transition: stroke-dashoffset 0.5s ease; }
-  .ring-label {
-    grid-row: 1; grid-column: 1;
-    justify-self: center;
-    font-weight: 700; font-size: 13px; color: var(--heading);
+  .skill-card h3 { font-size: 16px; margin-bottom: 12px; }
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips :global(li) {
+    background: var(--bg);
+    color: var(--heading);
+    border-radius: 999px;
+    padding: 2px 12px;
+    font-size: 12px;
   }
-  .skill-card h3 { font-size: 16px; margin-bottom: 4px; }
-  .skill-card p { margin: 0; }
+  .note { margin: 12px 0 0; font-size: 12px; }
 
   @media (max-width: 767px) {
     .stage { height: auto; }
@@ -121,20 +110,22 @@ const C = 2 * Math.PI * R;
 </style>
 
 <script>
-  type Skill = { name: string; level: number; text: string };
+  type Skill = { name: string; items: string[]; note?: string };
   for (const stage of document.querySelectorAll<HTMLElement>('.stage[data-skills]')) {
     const skills: Skill[] = JSON.parse(stage.dataset.skills!);
     const buttons = stage.querySelectorAll<HTMLButtonElement>('.skill');
-    const ring = stage.querySelector<SVGCircleElement>('.ring-value')!;
-    const c = Number(ring.dataset.c);
     const field = (name: string) => stage.querySelector<HTMLElement>(`[data-field="${name}"]`)!;
 
     const select = (i: number) => {
       const s = skills[i];
       field('name').textContent = s.name;
-      field('text').textContent = s.text;
-      field('level').textContent = String(s.level);
-      ring.style.strokeDashoffset = String(c * (1 - s.level / 100));
+      field('items').replaceChildren(...s.items.map((i) => {
+        const li = document.createElement('li');
+        li.textContent = i;
+        return li;
+      }));
+      field('note').textContent = s.note ?? '';
+      field('note').hidden = !s.note;
       buttons.forEach((b, j) => b.setAttribute('aria-pressed', String(i === j)));
     };
 

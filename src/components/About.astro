@@ -1,0 +1,63 @@
+---
+import content from '../data/content.json';
+import Icon from './Icon.astro';
+---
+<section id="about" class="section">
+  <div class="container">
+    <div class="card about">
+      <div class="section-head">
+        <span class="eyebrow">Minust</span>
+        <h2 class="section-title">Põhipädevused</h2>
+      </div>
+      <div class="profile">
+        {content.profile.map((p) => <p>{p}</p>)}
+      </div>
+      <ul class="grid">
+        {content.competencies.map((c) => (
+          <li>
+            <span class={`icon tone-${c.tone}`}><Icon name={c.icon} /></span>
+            <div>
+              <h3>{c.title}</h3>
+              <ul class="items">
+                {c.items.map((i) => <li>{i}</li>)}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about { padding: 64px 56px; }
+  .profile { max-width: 760px; margin: 0 auto 48px; text-align: center; }
+  .profile p { margin: 0 0 12px; }
+  .profile p:last-child { color: var(--heading); font-weight: 600; }
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  .grid > li { display: flex; gap: 16px; align-items: flex-start; }
+  .icon {
+    flex: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+  }
+  h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .items { margin: 0; padding-left: 18px; }
+  .items li::marker { color: var(--accent); }
+
+  @media (max-width: 767px) {
+    .about { padding: 40px 24px; }
+    .grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>

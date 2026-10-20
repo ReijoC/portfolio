@@ -27,7 +27,7 @@ on failis [`src/data/content.json`](src/data/content.json). Koodi pole vaja puut
 | Favicon | `public/favicon.svg` |
 | Värvid, fondid, vahed | `src/styles/global.css` (`:root` muutujad) |
 
-Veel täitmata: oskuste protsendid on hinnangulised, tagasisidede plokk on peidetud kuni `testimonials` on tühi, CV PDF puudub.
+Veel täitmata: tagasisidede plokk on peidetud kuni `testimonials` on tühi, CV PDF puudub.
 
 ## Ülesehitus
 
@@ -35,7 +35,7 @@ Veel täitmata: oskuste protsendid on hinnangulised, tagasisidede plokk on peide
 src/
   data/content.json      kogu sisu
   pages/index.astro      lehe plokkide järjekord
-  components/            iga plokk eraldi komponendina (Hero, Services, Skills, ...)
+  components/            iga plokk eraldi komponendina (Hero, About, Process, Skills, Timeline, Projects, ...)
   styles/global.css      disainitokenid ja ühised stiilid
 ```
 

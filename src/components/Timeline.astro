@@ -1,22 +1,27 @@
 ---
-import content from '../data/content.json';
 import Decorations from './Decorations.astro';
+interface Item { org: string; title: string; years: string; text?: string; items?: string[] }
+interface Props { id: string; eyebrow: string; title: string; items: Item[]; deco?: boolean }
+const { id, eyebrow, title, items, deco = false } = Astro.props;
 ---
-<section id="education" class="section">
-  <Decorations set="b" />
+<section id={id} class="section">
+  {deco && <Decorations set="b" />}
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Kvalifikatsioon</span>
-      <h2 class="section-title">Haridus</h2>
+      <span class="eyebrow">{eyebrow}</span>
+      <h2 class="section-title">{title}</h2>
     </div>
     <ol class="timeline">
-      {content.education.map((e) => (
+      {items.map((e) => (
         <li>
           <span class="dot" aria-hidden="true"></span>
           <article class="card item">
-            <span class="eyebrow">{e.school} · {e.years}</span>
-            <h3>{e.degree}</h3>
+            <span class="eyebrow">{e.org} · {e.years}</span>
+            <h3>{e.title}</h3>
             {e.text && <p>{e.text}</p>}
+            {e.items && e.items.length > 0 && (
+              <ul>{e.items.map((i) => <li>{i}</li>)}</ul>
+            )}
           </article>
         </li>
       ))}
@@ -44,8 +49,8 @@ import Decorations from './Decorations.astro';
     border-color: transparent transparent transparent #d9dbea;
     border-radius: 50%;
   }
-  li { position: relative; }
-  li:nth-child(2) { margin-left: -24px; }
+  .timeline > li { position: relative; }
+  .timeline > li:nth-child(2) { margin-left: -24px; }
   .dot {
     position: absolute;
     left: -40px; top: 32px;
@@ -54,15 +59,17 @@ import Decorations from './Decorations.astro';
     background: var(--accent);
     box-shadow: 0 0 0 5px rgba(240, 80, 110, 0.18);
   }
-  li:nth-child(2) .dot { left: -16px; }
+  .timeline > li:nth-child(2) .dot { left: -16px; }
   .item { padding: 24px 28px; }
   h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
   p { margin: 0; }
+  ul { margin: 8px 0 0; padding-left: 18px; }
+  ul li::marker { color: var(--accent); }
 
   @media (max-width: 767px) {
     .timeline { padding-left: 28px; }
     .timeline::before { width: 0; border-radius: 0; left: 6px; }
-    li:nth-child(2) { margin-left: 0; }
-    .dot, li:nth-child(2) .dot { left: -28px; }
+    .timeline > li:nth-child(2) { margin-left: 0; }
+    .dot, .timeline > li:nth-child(2) .dot { left: -28px; }
   }
 </style>

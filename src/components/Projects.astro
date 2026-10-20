@@ -34,6 +34,9 @@ const projects = content.projects.map((p) => ({
             <details>
               <summary>Mida tegin</summary>
               <p>{p.text}</p>
+              {'roleItems' in p && p.roleItems && (
+                <ul>{p.roleItems.map((i) => <li>{i}</li>)}</ul>
+              )}
             </details>
             {p.tech && <p class="tech"><strong>Tehnoloogiad:</strong> {p.tech}</p>}
             {p.url && (
@@ -64,6 +67,24 @@ const projects = content.projects.map((p) => ({
               </div>
             )}
           </div>
+        </article>
+      ))}
+    </div>
+
+    <h3 class="more-title">Muud projektid</h3>
+    <div class="more">
+      {content.moreProjects.map((m) => (
+        <article class="card mini">
+          <span class="eyebrow">{m.status}</span>
+          <h4>{m.name}</h4>
+          <p class="sub">{m.subtitle}</p>
+          <p>{m.description}</p>
+          <ul class="chips">{m.features.map((f) => <li>{f}</li>)}</ul>
+          <p class="extra">{m.extra}</p>
+          <details>
+            <summary>Minu roll</summary>
+            <ul>{m.roleItems.map((i) => <li>{i}</li>)}</ul>
+          </details>
         </article>
       ))}
     </div>
@@ -127,7 +148,21 @@ const projects = content.projects.map((p) => ({
   .thumbs button[aria-pressed='true'] { opacity: 1; border-color: var(--accent); }
   .thumbs :global(img) { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px; }
 
+  details ul { margin: 0 0 8px; padding-left: 18px; }
+  details li::marker { color: var(--accent); }
+
+  .more-title { text-align: center; font-size: 18px; margin: 64px 0 24px; }
+  .more { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .mini { padding: 28px; display: flex; flex-direction: column; }
+  .mini h4 { color: var(--heading); font-size: 18px; margin: 0; }
+  .mini .sub { color: var(--heading); font-weight: 500; margin-bottom: 8px; }
+  .chips { list-style: none; margin: 4px 0 12px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips li { background: var(--bg); color: var(--heading); border-radius: 999px; padding: 2px 10px; font-size: 12px; }
+  .extra { font-size: 12px; }
+  .mini details { margin-top: auto; }
+
   @media (max-width: 1023px) {
+    .more { grid-template-columns: 1fr; }
     .project { grid-template-columns: 1fr; padding: 32px 24px; gap: 28px; }
     .project.flip .text { order: 0; }
   }

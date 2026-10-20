@@ -1,0 +1,65 @@
+---
+import content from '../data/content.json';
+const { steps, text } = content.process;
+---
+<section id="process" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Tööviis</span>
+      <h2 class="section-title">Kuidas ma töötan</h2>
+    </div>
+    <ol class="steps">
+      {steps.map((s, i) => (
+        <li><span class="num" aria-hidden="true">{i + 1}</span>{s}</li>
+      ))}
+    </ol>
+    <div class="text">
+      {text.map((t) => <p>{t}</p>)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps {
+    list-style: none;
+    margin: 0 0 32px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 28px;
+  }
+  .steps li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    border-radius: 999px;
+    padding: 8px 18px 8px 8px;
+    color: var(--heading);
+    font-weight: 600;
+  }
+  .steps li:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -22px;
+    color: var(--accent);
+  }
+  .num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: grid; place-items: center;
+    font-size: 12px;
+  }
+  .text { max-width: 720px; margin: 0 auto; text-align: center; }
+  .text p { margin: 0 0 12px; }
+  .text p:last-child { color: var(--heading); font-weight: 600; }
+  @media (max-width: 767px) {
+    .steps { flex-direction: column; align-items: center; gap: 24px; }
+    .steps li:not(:last-child)::after { content: '↓'; right: auto; left: 50%; bottom: -22px; transform: translateX(-50%); }
+  }
+</style>

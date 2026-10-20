@@ -11,6 +11,7 @@ const base = import.meta.env.BASE_URL;
     <div class="hero-text">
       <span class="eyebrow hello"><span>Tere,</span> olen {person.name}</span>
       <h1>{person.role}</h1>
+      <p class="tagline">{person.tagline}</p>
       <p>{person.intro}</p>
       <div class="actions">
         <a class="btn btn-primary" href="#contact">Võta ühendust</a>
@@ -63,7 +64,8 @@ const base = import.meta.env.BASE_URL;
     letter-spacing: 0.02em;
     margin-bottom: 12px;
   }
-  .hero-text p { max-width: 380px; margin: 0 0 32px; }
+  .hero-text p { max-width: 440px; margin: 0 0 32px; }
+  .hero-text .tagline { color: var(--accent); font-weight: 600; margin-bottom: 16px; }
   .actions { display: flex; gap: 16px; flex-wrap: wrap; }
   .hero-art svg { width: 100%; max-width: 420px; margin-inline: auto; display: block; }
 

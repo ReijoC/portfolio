@@ -1,16 +1,17 @@
 {
   "site": {
     "lang": "et",
-    "title": "Reijo Pajussaar | Full-stack-arendaja",
-    "description": "Reijo Pajussaare portfoolio: masinaehituse taustaga arendaja, kes ehitab veebirakendusi ideest töötava tooteni.",
+    "title": "Reijo Pajussaar | Technical Product Owner",
+    "description": "Inseneritaustaga tehniline toote- ja protsessiarendaja: digitaliseerimine, AI-toega tootearendus ja inseneeria.",
     "ogImage": "og-image.png"
   },
   "person": {
     "name": "Reijo Pajussaar",
-    "role": "Full-stack-arendaja",
-    "intro": "Masinaehituse taustaga arendaja, kes ehitab veebirakendusi ideest töötava tooteni: kasutajaliides, andmed, serveripool ja kõik nende vahel.",
+    "role": "Technical Product Owner",
+    "intro": "Inseneritaustaga tehniline toote- ja protsessiarendaja, kelle tugevus on keerukate tehniliste või äriliste probleemide muutmine selgeteks nõueteks, töövoogudeks ja toimivateks digitaalseteks lahendusteks.",
     "email": "reijopajussaar@gmail.com",
-    "cv": ""
+    "cv": "",
+    "tagline": "Digitalization & AI-enabled product development · Engineering"
   },
   "nav": [
     {
@@ -20,6 +21,10 @@
     {
       "label": "Minust",
       "href": "#about"
+    },
+    {
+      "label": "Kogemus",
+      "href": "#experience"
     },
     {
       "label": "Projektid",
@@ -37,86 +42,65 @@
       "icon": "github"
     }
   ],
-  "services": [
-    {
-      "title": "Veebirakendused",
-      "text": "Ideest avaliku tooteni: arhitektuur, arendus ja avaldamine.",
-      "icon": "layout",
-      "tone": "blue"
-    },
-    {
-      "title": "Kasutajaliidesed",
-      "text": "Selged ja kohanduvad liidesed Reacti ja TypeScriptiga.",
-      "icon": "pen",
-      "tone": "purple"
-    },
-    {
-      "title": "Tagarakendus ja andmed",
-      "text": "Serveriliidesed, andmebaasid, autentimine ja taustatööd.",
-      "icon": "code",
-      "tone": "orange"
-    },
-    {
-      "title": "Kaardid ja 3D",
-      "text": "Geoandmete töötlus, interaktiivsed kaardid ja 3D-vaated brauseris.",
-      "icon": "star",
-      "tone": "pink"
-    },
-    {
-      "title": "PWA ja mobiil",
-      "text": "Installitavad rakendused, mis töötavad ka ilma võrguta.",
-      "icon": "phone",
-      "tone": "green"
-    },
-    {
-      "title": "AI-toega arendus",
-      "text": "Kiired iteratsioonid AI-tööriistadega, kvaliteedikontroll inimese käes.",
-      "icon": "play",
-      "tone": "yellow"
-    }
-  ],
   "skills": [
     {
-      "name": "TypeScript",
-      "level": 90,
-      "text": "Põhikeel nii kasutajaliidese kui serveripoole jaoks.",
-      "short": "TS",
-      "tone": "blue"
+      "name": "Product & Digital",
+      "short": "Pd",
+      "tone": "blue",
+      "items": [
+        "Product Ownership",
+        "Requirements Definition",
+        "Process Mapping",
+        "Prototyping",
+        "UI/UX Feedback",
+        "Testing",
+        "Regression Control",
+        "API Integrations",
+        "Data Models"
+      ]
     },
     {
-      "name": "React ja Next.js",
-      "level": 85,
-      "text": "Komponendipõhised liidesed ja täisväärtuslikud veebirakendused.",
-      "short": "Re",
-      "tone": "purple"
+      "name": "AI & Software",
+      "short": "AI",
+      "tone": "purple",
+      "items": [
+        "Codex",
+        "AI-assisted Development",
+        "Python",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Git",
+        "REST API-d"
+      ],
+      "note": "Reacti, Next.js-i ja TypeScripti kasutan eelkõige AI-toega tootearenduse ja prototüüpimise kontekstis."
     },
     {
-      "name": "PostgreSQL",
-      "level": 75,
-      "text": "Andmemudelid, Drizzle ORM ja Neon.",
-      "short": "Pg",
-      "tone": "orange"
+      "name": "Engineering",
+      "short": "En",
+      "tone": "orange",
+      "items": [
+        "SolidWorks",
+        "3D CAD",
+        "FEM / tugevusarvutused",
+        "Eurocode",
+        "CAM",
+        "CNC",
+        "Tootmisjoonised",
+        "Metallkonstruktsioonid"
+      ]
     },
     {
-      "name": "Python",
-      "level": 70,
-      "text": "Geoandmete töötlus ja tootmisfailide genereerimine.",
+      "name": "Analysis & Automation",
       "short": "Py",
-      "tone": "yellow"
-    },
-    {
-      "name": "SolidWorks ja CAD",
-      "level": 85,
-      "text": "Metallkonstruktsioonide projekteerimine ning tootmis- ja paigaldusjoonised (SolidWorks, Catia V5, Fusion 360).",
-      "short": "Sw",
-      "tone": "green"
-    },
-    {
-      "name": "Tugevusanalüüs",
-      "level": 80,
-      "text": "FEM-analüüsid Ansysega ja käsitsi tugevusarvutused.",
-      "short": "An",
-      "tone": "pink"
+      "tone": "green",
+      "items": [
+        "Python",
+        "MATLAB",
+        "Excel",
+        "SolidWorksi makrod",
+        "Tehniliste arvutuste automatiseerimine"
+      ]
     }
   ],
   "projects": [
@@ -124,7 +108,7 @@
       "slug": "syvamo",
       "name": "Syvamo",
       "year": 2026,
-      "role": "Full-stack-arendaja, UI/UX ja geoinfo töötlus",
+      "role": "Tooteomanik ja AI-toega arenduse juht; UI/UX ja geoinfo töötlus",
       "description": "Eesti ja Soome avaandmetel põhinev veebirakendus personaalse kihilise puidukaardi kujundamiseks, eelvaateks ja DXF-tootmisfailide genereerimiseks.",
       "text": "Arendasin eesti- ja soomekeelse veebirakenduse, millega saab avaandmete põhjal kujundada personaalse kihilise puidukaardi. Teostasin paigaotsingu, kaardiala valiku ja automaatselt uueneva eelvaate ning Pythonil põhineva DXF-tootmisfailide generaatori koos geomeetria- ja lõigatavuskontrollidega. Lisaks lõin serveriliidesed, taustatööde järjekorra ja tellimuse digitaalse eelkontrolli.",
       "tech": "JavaScript, Canvas, Node.js, Python, Shapely, pyproj, ezdxf, SQLite ja Cloudflare",
@@ -153,7 +137,7 @@
       "slug": "prangelmeister",
       "name": "Prangelmeister",
       "year": 2026,
-      "role": "Toote looja ja full-stack-arendaja",
+      "role": "Toote looja ja AI-toega arenduse juht",
       "description": "Installitav peastarvutamise veebirakendus astmelise raskusega harjutuste, päevaväljakutsete ja serveris kontrollitavate võistlustulemustega.",
       "text": "Arendasin peastarvutamise PWA-rakenduse Prangelmeister, kus saab harjutada eri arvutusalasid, osaleda päevaväljakutsetes ja võrrelda serveris kontrollitud tulemusi edetabelis. Teostasin deterministliku TypeScripti mängumootori, kohanduva mänguliidese, autentimise ning PostgreSQL-i andmekihi. Lisasin võrguühenduseta harjutamise, tulemuste statistika ja personaaltreeningu ning automaattestid mängureeglite ja kasutusvoogude kontrollimiseks.",
       "tech": "Next.js, React, TypeScript, Tailwind CSS, PostgreSQL, Drizzle ORM, Better Auth, IndexedDB, Vitest ja Playwright",
@@ -182,7 +166,7 @@
       "slug": "mintego",
       "name": "Mintego",
       "year": 2026,
-      "role": "Full-stack-arendaja: kasutajaliides, tagarakendus ja süsteemiarhitektuur",
+      "role": "Tooteomanik ja AI-toega arenduse juht; kasutajaliides, tagarakendus ja süsteemiarhitektuur",
       "description": "Kasutatud ja taastatud elektroonika e-poe rakendus otsingu, filtrite, seadmete seisukorrainfo, tootevariantide ja ostukorviga.",
       "text": "Arendasin kasutatud ja taastatud elektroonika e-poe rakenduse, mis sisaldab filtreeritavat tootekataloogi, seisukorra- ja akuinfot, tootevariantide valikut ning ostukorvi. Lõin Reacti ja TypeScriptiga kasutajaliidese ning PostgreSQLil põhineva tagarakenduse toodete, hinnastuse, laoseisu ja tellimuste jaoks. Valmistasin ette makse- ja tarneliidesed ning lisasin turbe-, SEO- ja ligipääsetavuse kontrollid.",
       "tech": "React, TypeScript, Vinext/Vite, Tailwind CSS, Neon PostgreSQL, Drizzle ORM, Neon Auth, Cloudflare Workers ja R2",
@@ -207,7 +191,7 @@
       "slug": "ifcapp",
       "name": "QuantRail (IFCApp)",
       "year": 2026,
-      "role": "Full-stack-arendaja: kasutajaliidese, IFC-töötluse ja hinnastusloogika arendus",
+      "role": "Tooteomanik ja AI-toega arenduse juht; IFC-töötluse ja hinnastusloogika määratlemine",
       "description": "Veebirakendus IFC-ehitusmudelist piirete tuvastamiseks ja mahuarvestuseks, 3D-kontrolliks, hinnastuseks ning kliendipakkumise koostamiseks.",
       "text": "Arendasin IFC-põhise veebirakenduse piirete mahuarvestuseks ja hinnapakkumiste koostamiseks. Teostasin brauseris töötava IFC-parsingu, piirete tuvastamise ja grupeerimise ning 3D-vaate objektide kontrollimiseks. Lõin projekti hinnastusloogika oma- ja müügihindade, kasumi ja marginaali arvutamiseks ning PDF-ina salvestatava kliendipakkumise.",
       "tech": "TypeScript, React, Three.js, WebIFC, WebAssembly, Cloudflare D1 ja Drizzle ORM",
@@ -242,7 +226,7 @@
       "year": 2026,
       "role": "Tooteomanik ja AI-toega arenduse juht",
       "description": "Tuuleteadlik rattamarsruudi planeerija, mis arvestab soovitud distantsi, väljumisaega, tuuleprognoosi ja teevaliku eelistusi.",
-      "text": "Viisin tuuleteadliku rattamarsruudi planeerija idee avaliku veebirakenduseni. Kujundasin kasutusloogika ja funktsionaalsed nõuded, juhtisin AI-toega arendusiteratsioone ning kontrollisin marsruutide kvaliteeti päris kaartidel. Rakendus koostab ja võrdleb treeningringe, arvestab väljumisaja tuuleprognoosi ja teevaliku eelistusi ning kuvab interaktiivsel kaardil sõidusuuna, tuule mõju ja teeliigid. Marsruudi saab eksportida GPX-failina.",
+      "text": "Viisin tuuleteadliku rattamarsruudi planeerija idee avaliku veebirakenduseni. Kujundasin kasutusloogika ja funktsionaalsed nõuded, juhtisin AI-toega arendusiteratsioone ning kontrollisin marsruutide kvaliteeti päris kaartidel. Rakendus koostab ja võrdleb treeningringe, arvestab väljumisaja tuuleprognoosi ja teevaliku eelistusi ning kuvab interaktiivsel kaardil sõidusuuna, tuule mõju ja teeliigid. Marsruudi saab eksportida GPX-failina. Arenduse käigus kasvas turva- ja regressioonikontrollide arv 77-ni.",
       "tech": null,
       "url": "https://kuljekas.ee",
       "status": "Avalik",
@@ -259,32 +243,232 @@
           "file": "kuljekas/kuljekas-03.jpg",
           "caption": "Planeerimisfiltrid ja tulemus"
         }
+      ],
+      "roleItems": [
+        "Tooteidee ja väärtuspakkumise kujundamine",
+        "Kasutusloogika määratlemine",
+        "Funktsioonide prioriseerimine",
+        "Ebaloogiliste marsruutide tuvastamine reaalsete kaartide põhjal",
+        "Marsruutide kvaliteedikriteeriumide täpsustamine",
+        "UI/UX tagasiside",
+        "Testimise ja regressioonide prioriseerimine",
+        "Avaldamise iteratsioonide juhtimine"
       ]
     }
   ],
   "education": [
     {
-      "school": "Tallinna Tehnikakõrgkool",
-      "degree": "Masinaehitus",
+      "org": "Tallinna Tehnikaülikool",
+      "title": "MSc – Tootearendus ja tootmistehnika",
+      "years": "2025 – tänaseni",
+      "text": "Fookus: tootearendus, tootmistehnika, insenertehniline optimeerimine, simulatsioon, tootmisprotsessid ja süsteemne probleemilahendus."
+    },
+    {
+      "org": "Tallinna Tehnikakõrgkool",
+      "title": "BSc – Masinaehitus",
       "years": "2019 – 2023",
-      "text": "Lõputöö: terasest treppide ja trepipiirete projekteerimise automatiseerimine. Valmis graafilise kasutajaliidesega tarkvaralahendus, mis automatiseeris treppide projekteerimise."
+      "text": "Fookus: masinaehitus, mehaanika, konstruktsioonide projekteerimine, CAD, tootmistehnoloogia ja tugevusarvutused. Lõputöö: terasest treppide ja trepipiirete projekteerimise automatiseerimine."
     },
     {
-      "school": "Tallinna Tehnikaülikool",
-      "degree": "IT-süsteemide arendus",
+      "org": "Tallinna Tehnikaülikool",
+      "title": "IT-süsteemide arendus",
       "years": "2017 – 2018",
-      "text": "Programmeerimise ja infosüsteemide arenduse alused."
-    },
-    {
-      "school": "Kadrina Keskkool",
-      "degree": "Keskharidus",
-      "years": "2016",
-      "text": ""
+      "text": "Üheaastane õpe programmeerimise ja tarkvarasüsteemide valdkonnas."
     }
   ],
   "testimonials": [],
   "contact": {
     "lead": "Kas sul on projekti idee?",
     "cta": "Kirjuta mulle"
-  }
+  },
+  "profile": [
+    "Mul on praktiline kogemus masinaehitusest, metallkonstruktsioonide projekteerimisest, tootmisest, tugevusarvutustest ja tööprotsesside automatiseerimisest. Sellele lisandub tarkvarasüsteemide taust ning kogemus mitmete veebirakenduste ja inseneritööriistade loomisel.",
+    "Kasutan AI-d ja Codexit tehnilise paarilisena: minu vastutada on probleemi defineerimine, valdkonnaloogika, funktsionaalsed nõuded, prioriseerimine, kasutajakogemus, kvaliteedikriteeriumid ja tulemuse sisuline kontroll. AI aitab kiirendada implementatsiooni, testimist ja tehnilist dokumenteerimist.",
+    "Minu tugevus on olla ühenduslüli kasutaja, äri, inseneeria ja tarkvaraarenduse vahel."
+  ],
+  "competencies": [
+    {
+      "title": "Technical Product Ownership",
+      "icon": "layout",
+      "tone": "blue",
+      "items": [
+        "Probleemide ja kasutajavajaduste struktureerimine",
+        "Funktsionaalsete nõuete ja äriloogika määratlemine",
+        "Funktsioonide prioriseerimine",
+        "MVP ja prototüüpide loomise juhtimine",
+        "Kasutajateekondade ja töövoogude kujundamine",
+        "Iteratiivne tootearendus",
+        "Tehnilise tulemuse valideerimine"
+      ]
+    },
+    {
+      "title": "Digitaliseerimine ja protsessiarendus",
+      "icon": "code",
+      "tone": "purple",
+      "items": [
+        "Manuaalsete tööprotsesside automatiseerimine",
+        "Digitaalsete tööriistade kontseptsioon ja arendus",
+        "Töövoogude analüüs ja lihtsustamine",
+        "Arvutus- ja otsustusloogika formaliseerimine",
+        "API-de ja süsteemide integratsioonide mõistmine"
+      ]
+    },
+    {
+      "title": "Engineering",
+      "icon": "star",
+      "tone": "orange",
+      "items": [
+        "Masinaehitus ja tootearendus",
+        "Metallkonstruktsioonide projekteerimine",
+        "Tugevusarvutused",
+        "3D CAD",
+        "Tootmis- ja paigaldusdokumentatsioon",
+        "CNC/CAM ja valmistatavuse mõistmine"
+      ]
+    },
+    {
+      "title": "AI-enabled Product Development",
+      "icon": "play",
+      "tone": "green",
+      "items": [
+        "Codex / AI-assisted development",
+        "Kiire prototüüpimine",
+        "AI-le tehniliste ülesannete struktureerimine",
+        "Koodi ja lahenduste kriitiline valideerimine",
+        "Testide ja regressioonikontrollide kasutamine",
+        "Iteratsioonide juhtimine tagasiside põhjal"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "org": "Metkon Projekt OÜ",
+      "title": "Projekteerija / mehaanikainsener",
+      "years": "2021 – tänaseni",
+      "text": "Metallkonstruktsioonide ja arhitektuursete terastoodete tehniliste lahenduste väljatöötamine alates lähteülesandest kuni tootmis- ja paigaldusdokumentatsioonini.",
+      "items": [
+        "Terastreppide, piirete ja muude metallkonstruktsioonide projekteerimine",
+        "Tehniliste sõlmede ja konstruktiivsete lahenduste väljatöötamine",
+        "3D-mudelite ning tootmis- ja paigaldusjooniste koostamine",
+        "Tugevusarvutused ja konstruktsioonide kontroll",
+        "Lahenduste kohandamine vastavalt tootmis- ja paigaldusvõimalustele",
+        "Tehniliste probleemide lahendamine koostöös tootmise ja teiste projektiosalistega",
+        "Korduvate projekteerimistegevuste automatiseerimine SolidWorksi makrode ja Pythoni abil"
+      ]
+    },
+    {
+      "org": "Formula Student Team Tallinn",
+      "title": "Mehaanikainsener",
+      "years": "2020 – 2021",
+      "text": "",
+      "items": [
+        "Vormelauto komponentide projekteerimine",
+        "Veermiku kinnituselementide konstruktsioon",
+        "Detailide tugevuse ja valmistatavuse hindamine",
+        "Konstruktsioonide iteratiivne optimeerimine",
+        "CAM-failide ettevalmistamine",
+        "Lahenduste arendamine meeskonnapõhises insenerikeskkonnas"
+      ]
+    },
+    {
+      "org": "NYImage OÜ",
+      "title": "CNC-operaator",
+      "years": "2018 – 2021",
+      "text": "",
+      "items": [
+        "CNC-seadmete kasutamine",
+        "CAM-programmide ja tootmisfailidega töötamine",
+        "Detailide valmistamine",
+        "Kvaliteedikontroll",
+        "Praktilise tootmisprotsessi ja valmistatavuse mõistmine"
+      ]
+    }
+  ],
+  "process": {
+    "steps": [
+      "Probleem",
+      "Loogika",
+      "Nõuded",
+      "Prototüüp",
+      "Testimine",
+      "Tagasiside",
+      "Iteratsioon"
+    ],
+    "text": [
+      "Olen kõige tugevam olukordades, kus probleem ei ole alguses täielikult defineeritud ning tehnilise lahenduse loomiseks tuleb ühendada kasutaja vajadus, valdkonnateadmine, äriloogika ja tehnilised võimalused.",
+      "Minu eesmärk ei ole tehnoloogia kasutamine tehnoloogia pärast, vaid toimiva ja mõõdetavat väärtust loova lahenduse ehitamine."
+    ]
+  },
+  "moreProjects": [
+    {
+      "name": "Kanne",
+      "subtitle": "Eesti mikroettevõtja raamatupidamistöölaud",
+      "status": "Arendusprototüüp / avalik demo",
+      "description": "Digitaalne töölaud, mis seob pangatehingud algdokumentidega ja loob kasutajale kontrollitava raamatupidamiskande eelvaate.",
+      "features": [
+        "camt.053 pangaväljavõtted",
+        "XML-, PDF- ja pildidokumentide analüüs",
+        "Tehingute deterministlik sobitamine",
+        "Senditäpne rahaloogika",
+        "Osa- ja koondmaksed",
+        "Stornokanded",
+        "Arve- ja käibemaksuvood"
+      ],
+      "extra": "Viimane tehniline kontroll: 33 testi, lint ja production build läbitud.",
+      "roleItems": [
+        "Raamatupidamisprotsessi ja kasutaja töövoo kaardistamine",
+        "Äriloogika ja kontrollreeglite sõnastamine",
+        "Edge case'ide tuvastamine",
+        "Auditite põhjal arendusprioriteetide määramine",
+        "Kasutusmugavuse hindamine",
+        "Toote piiride ja riskide teadlik dokumenteerimine"
+      ]
+    },
+    {
+      "name": "Kant",
+      "subtitle": "Arhitektuursete terastoodete e-pood",
+      "status": "E-kaubanduse prototüüp ja korduskasutatav arhitektuur",
+      "description": "Eestis valmistatud corteni istutuskastide ja pulbervärvitud majanumbrite mitmeleheline e-pood.",
+      "features": [
+        "Tootekataloog",
+        "Majanumbrite konfiguraator",
+        "Ostukorv",
+        "ET/EN sisu",
+        "Serveripoolne hinnastus",
+        "MakeCommerce'i maksevoo alus",
+        "Resendi tehingukinnitused",
+        "SEO- ja AI-otsingule optimeeritud struktuur"
+      ],
+      "extra": "Tehniline arhitektuur eraldati korduskasutatavaks malliks järgmiste e-poodide loomiseks.",
+      "roleItems": [
+        "Toote- ja brändikontseptsioon",
+        "Müügiteekonna kujundamine",
+        "Funktsionaalsete nõuete sõnastamine",
+        "Turvalisuse ja korduskasutatavuse prioriseerimine",
+        "Disaini- ja keeleiteratsioonide juhtimine",
+        "Tehnilise tulemuse sisuline valideerimine"
+      ]
+    },
+    {
+      "name": "Piirde vahevarbide kalkulaator",
+      "subtitle": "Inseneritöö protsessi digitaliseerimine",
+      "status": "Valmis eraldiseisev brauseritööriist",
+      "description": "Praktilisest projekteerimisvajadusest loodud kalkulaator piirde vahevarbide arvu ja paigaldusmõõtude automaatseks leidmiseks.",
+      "features": [
+        "Vahevarbide arv",
+        "Vabade vahede arv",
+        "Vaba vahe S",
+        "Tsentrite vahe C",
+        "Esimese varbi tsentri P"
+      ],
+      "extra": "Sisaldab eraldi loogikat 95–100 mm piirtsooni käsitlemiseks.",
+      "roleItems": [
+        "Manuaalse inseneriprobleemi formaliseerimine",
+        "Arvutusloogika ja piirjuhtude määratlemine",
+        "Tulemuste kontroll",
+        "Kasutajaliidese vajaduste sõnastamine",
+        "Lahenduse viimine paigaldusvaba veebitööriistani"
+      ]
+    }
+  ]
 }
