@@ -20,6 +20,10 @@ const first = skills[0];
     <div class="section-head">
       <span class="eyebrow">Tehnilised oskused</span>
       <h2 class="section-title">Tööriistad ja meetodid</h2>
+      <p class="hint">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10m0-.5v-1a1.5 1.5 0 0 1 3 0V11m0-1a1.5 1.5 0 0 1 3 0v4.5A6.5 6.5 0 0 1 11.5 21h-.3a6 6 0 0 1-4.6-2.2L3.8 15.3a1.6 1.6 0 0 1 2.4-2.1L9 15.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Klõpsa ringidel, et näha iga valdkonna oskusi.
+      </p>
     </div>
 
     <div class="stage" data-skills={JSON.stringify(skills)}>
@@ -43,6 +47,9 @@ const first = skills[0];
             <button type="button" class={`skill tone-${s.tone}`} data-index={i}
               aria-pressed={i === 0 ? 'true' : 'false'} aria-label={s.name}>
               {s.short}
+              <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="47" pathLength="100" />
+              </svg>
             </button>
           </li>
         ))}
@@ -81,7 +88,43 @@ const first = skills[0];
     cursor: pointer;
     transition: scale var(--fast) var(--ease-out), box-shadow var(--fast);
   }
+  .skill { position: relative; }
   .skill:active { scale: 0.95; }
+  /* Autoplay timer: a ring fills around the active button, then the next one is picked. */
+  .ring {
+    position: absolute;
+    inset: -11px;
+    width: calc(100% + 22px);
+    height: calc(100% + 22px);
+    rotate: -90deg;
+    pointer-events: none;
+    overflow: visible;
+  }
+  .ring circle {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 3;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+  .stage.autoplay .skill[aria-pressed='true'] .ring circle {
+    opacity: 1;
+    animation: ring-fill 3s linear forwards;
+  }
+  .stage.autoplay.paused .skill[aria-pressed='true'] .ring circle { animation-play-state: paused; }
+  @keyframes ring-fill { to { stroke-dashoffset: 0; } }
+  .hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 12px 0 0;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .hint svg { color: var(--accent); flex: none; }
   .skill:hover, .skill[aria-pressed='true'] {
     scale: 1.12;
     box-shadow: 0 0 0 4px rgba(240, 80, 110, 0.25), var(--shadow);
@@ -110,7 +153,8 @@ const first = skills[0];
     .skill-list {
       display: flex; gap: 16px;
       overflow-x: auto;
-      padding: 12px 4px 16px;
+      padding: 16px;
+      margin-inline: -16px;
       scroll-snap-type: x mandatory;
     }
     .skill-list li { position: static; transform: none; flex: none; scroll-snap-align: start; }
@@ -138,10 +182,36 @@ const first = skills[0];
       buttons.forEach((b, j) => b.setAttribute('aria-pressed', String(i === j)));
     };
 
+    // Autoplay: step through the groups every 3 s while the section is on screen,
+    // and stop for good as soon as the visitor picks a group themselves.
+    let current = 0;
+    const stop = () => {
+      stage.classList.remove('autoplay', 'paused');
+      observer.disconnect();
+    };
+    const restartRing = () => {
+      stage.classList.remove('autoplay');
+      void stage.offsetWidth;
+      stage.classList.add('autoplay');
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !stage.classList.contains('autoplay')) restartRing();
+      stage.classList.toggle('paused', !entry.isIntersecting);
+    }, { threshold: 0.5 });
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) observer.observe(stage);
+    stage.addEventListener('animationend', (e) => {
+      if (!(e.target as Element).closest('.ring') || !stage.classList.contains('autoplay')) return;
+      current = (current + 1) % skills.length;
+      select(current);
+      restartRing();
+    });
+
+    const pick = (i: number) => { stop(); current = i; select(i); };
     const canHover = matchMedia('(hover: hover)').matches;
     buttons.forEach((b, i) => {
-      b.addEventListener('click', () => select(i));
-      if (canHover) b.addEventListener('mouseenter', () => select(i));
+      b.addEventListener('click', () => pick(i));
+      b.addEventListener('focus', () => { if (b.matches(':focus-visible')) pick(i); });
+      if (canHover) b.addEventListener('mouseenter', () => pick(i));
     });
   }
 </script>
