@@ -1,17 +1,16 @@
 {
   "site": {
     "lang": "et",
-    "title": "Reijo Pajussaar | Technical Product Owner",
-    "description": "Inseneritaustaga tehniline toote- ja protsessiarendaja: digitaliseerimine, AI-toega tootearendus ja inseneeria.",
+    "title": "Reijo Pajussaar | Tootearendus, digitaliseerimine ja inseneeria",
+    "description": "Inseneritaustaga toote- ja protsessiarendaja: tootearendus, digitaliseerimine, AI-toega arendus ja inseneeria.",
     "ogImage": "og-image.png"
   },
   "person": {
     "name": "Reijo Pajussaar",
-    "role": "Technical Product Owner",
     "intro": "Inseneritaustaga tehniline toote- ja protsessiarendaja, kelle tugevus on keerukate tehniliste või äriliste probleemide muutmine selgeteks nõueteks, töövoogudeks ja toimivateks digitaalseteks lahendusteks.",
     "email": "reijopajussaar@gmail.com",
     "cv": "",
-    "tagline": "Digitalization & AI-enabled product development · Engineering"
+    "tagline": "Tootearendus · Digitaliseerimine · AI-toega arendus · Inseneeria"
   },
   "nav": [
     {
@@ -108,7 +107,7 @@
       "slug": "syvamo",
       "name": "Syvamo",
       "year": 2026,
-      "role": "Tooteomanik ja AI-toega arenduse juht; UI/UX ja geoinfo töötlus",
+      "role": "Tooteidee, nõuded ja AI-toega arenduse juhtimine; UI/UX ja geoinfo töötlus",
       "description": "Eesti ja Soome avaandmetel põhinev veebirakendus personaalse kihilise puidukaardi kujundamiseks, eelvaateks ja DXF-tootmisfailide genereerimiseks.",
       "text": "Arendasin eesti- ja soomekeelse veebirakenduse, millega saab avaandmete põhjal kujundada personaalse kihilise puidukaardi. Teostasin paigaotsingu, kaardiala valiku ja automaatselt uueneva eelvaate ning Pythonil põhineva DXF-tootmisfailide generaatori koos geomeetria- ja lõigatavuskontrollidega. Lisaks lõin serveriliidesed, taustatööde järjekorra ja tellimuse digitaalse eelkontrolli.",
       "tech": "JavaScript, Canvas, Node.js, Python, Shapely, pyproj, ezdxf, SQLite ja Cloudflare",
@@ -137,7 +136,7 @@
       "slug": "prangelmeister",
       "name": "Prangelmeister",
       "year": 2026,
-      "role": "Toote looja ja AI-toega arenduse juht",
+      "role": "Tooteidee, mänguloogika ja AI-toega arenduse juhtimine",
       "description": "Installitav peastarvutamise veebirakendus astmelise raskusega harjutuste, päevaväljakutsete ja serveris kontrollitavate võistlustulemustega.",
       "text": "Arendasin peastarvutamise PWA-rakenduse Prangelmeister, kus saab harjutada eri arvutusalasid, osaleda päevaväljakutsetes ja võrrelda serveris kontrollitud tulemusi edetabelis. Teostasin deterministliku TypeScripti mängumootori, kohanduva mänguliidese, autentimise ning PostgreSQL-i andmekihi. Lisasin võrguühenduseta harjutamise, tulemuste statistika ja personaaltreeningu ning automaattestid mängureeglite ja kasutusvoogude kontrollimiseks.",
       "tech": "Next.js, React, TypeScript, Tailwind CSS, PostgreSQL, Drizzle ORM, Better Auth, IndexedDB, Vitest ja Playwright",
@@ -166,7 +165,7 @@
       "slug": "mintego",
       "name": "Mintego",
       "year": 2026,
-      "role": "Tooteomanik ja AI-toega arenduse juht; kasutajaliides, tagarakendus ja süsteemiarhitektuur",
+      "role": "Nõuded, kasutajaliides, tagarakendus ja süsteemiarhitektuur AI-toega arenduses",
       "description": "Kasutatud ja taastatud elektroonika e-poe rakendus otsingu, filtrite, seadmete seisukorrainfo, tootevariantide ja ostukorviga.",
       "text": "Arendasin kasutatud ja taastatud elektroonika e-poe rakenduse, mis sisaldab filtreeritavat tootekataloogi, seisukorra- ja akuinfot, tootevariantide valikut ning ostukorvi. Lõin Reacti ja TypeScriptiga kasutajaliidese ning PostgreSQLil põhineva tagarakenduse toodete, hinnastuse, laoseisu ja tellimuste jaoks. Valmistasin ette makse- ja tarneliidesed ning lisasin turbe-, SEO- ja ligipääsetavuse kontrollid.",
       "tech": "React, TypeScript, Vinext/Vite, Tailwind CSS, Neon PostgreSQL, Drizzle ORM, Neon Auth, Cloudflare Workers ja R2",
@@ -191,7 +190,7 @@
       "slug": "ifcapp",
       "name": "QuantRail (IFCApp)",
       "year": 2026,
-      "role": "Tooteomanik ja AI-toega arenduse juht; IFC-töötluse ja hinnastusloogika määratlemine",
+      "role": "IFC-töötluse ja hinnastusloogika määratlemine ning AI-toega arenduse juhtimine",
       "description": "Veebirakendus IFC-ehitusmudelist piirete tuvastamiseks ja mahuarvestuseks, 3D-kontrolliks, hinnastuseks ning kliendipakkumise koostamiseks.",
       "text": "Arendasin IFC-põhise veebirakenduse piirete mahuarvestuseks ja hinnapakkumiste koostamiseks. Teostasin brauseris töötava IFC-parsingu, piirete tuvastamise ja grupeerimise ning 3D-vaate objektide kontrollimiseks. Lõin projekti hinnastusloogika oma- ja müügihindade, kasumi ja marginaali arvutamiseks ning PDF-ina salvestatava kliendipakkumise.",
       "tech": "TypeScript, React, Three.js, WebIFC, WebAssembly, Cloudflare D1 ja Drizzle ORM",
@@ -224,7 +223,7 @@
       "slug": "kuljekas",
       "name": "Küljekas",
       "year": 2026,
-      "role": "Tooteomanik ja AI-toega arenduse juht",
+      "role": "Tooteidee, kasutusloogika ja AI-toega arenduse juhtimine",
       "description": "Tuuleteadlik rattamarsruudi planeerija, mis arvestab soovitud distantsi, väljumisaega, tuuleprognoosi ja teevaliku eelistusi.",
       "text": "Viisin tuuleteadliku rattamarsruudi planeerija idee avaliku veebirakenduseni. Kujundasin kasutusloogika ja funktsionaalsed nõuded, juhtisin AI-toega arendusiteratsioone ning kontrollisin marsruutide kvaliteeti päris kaartidel. Rakendus koostab ja võrdleb treeningringe, arvestab väljumisaja tuuleprognoosi ja teevaliku eelistusi ning kuvab interaktiivsel kaardil sõidusuuna, tuule mõju ja teeliigid. Marsruudi saab eksportida GPX-failina. Arenduse käigus kasvas turva- ja regressioonikontrollide arv 77-ni.",
       "tech": null,
