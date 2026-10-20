@@ -3,7 +3,28 @@ import content from '../data/content.json';
 import Icon from './Icon.astro';
 ---
 <div class="chat-fab">
-  <span class="bubble" aria-hidden="true">Küsi lisa</span>
+  <span class="bubble" aria-hidden="true">
+    <svg class="wave" viewBox="0 0 32 32" width="20" height="20">
+      <!-- Inline SVG so the hand looks the same in every browser (native emoji differ per OS). -->
+      <g fill="#ffcf4d" stroke="#d99a1e" stroke-width="2" stroke-linejoin="round">
+        <rect x="9" y="5" width="3.8" height="15" rx="1.9" />
+        <rect x="13.1" y="2.5" width="3.8" height="17" rx="1.9" />
+        <rect x="17.2" y="4" width="3.8" height="16" rx="1.9" />
+        <rect x="21.3" y="8" width="3.6" height="12" rx="1.8" />
+        <rect x="4.5" y="12" width="4" height="11" rx="2" transform="rotate(-38 8.5 23)" />
+        <rect x="9" y="13" width="15.9" height="15" rx="6.5" />
+      </g>
+      <g fill="#ffcf4d">
+        <rect x="9" y="5" width="3.8" height="15" rx="1.9" />
+        <rect x="13.1" y="2.5" width="3.8" height="17" rx="1.9" />
+        <rect x="17.2" y="4" width="3.8" height="16" rx="1.9" />
+        <rect x="21.3" y="8" width="3.6" height="12" rx="1.8" />
+        <rect x="4.5" y="12" width="4" height="11" rx="2" transform="rotate(-38 8.5 23)" />
+        <rect x="10" y="14.5" width="13.9" height="12.5" rx="5.5" />
+      </g>
+    </svg>
+    Küsi lisa
+  </span>
   <a class="chat" href={`mailto:${content.person.email}`}>
     <Icon name="chat" />
     <span class="sr-only">Küsi lisa: saada mulle e-kiri</span>
@@ -33,6 +54,9 @@ import Icon from './Icon.astro';
   .chat:active { scale: 0.94; }
   .bubble {
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     background: var(--surface);
     color: var(--heading);
     font-weight: 600;
@@ -60,6 +84,24 @@ import Icon from './Icon.astro';
     border-radius: 2px;
   }
   .chat-fab.show .bubble { opacity: 1; translate: 0 0; scale: 1; }
+  .wave {
+    flex: none;
+    transform-origin: 65% 90%;
+  }
+  /* Wave right after the bubble appears, then a short wave again every few seconds. */
+  .chat-fab.show .wave { animation: wave 2.8s 0.2s ease-in-out infinite; }
+  @keyframes wave {
+    0% { rotate: 0deg; }
+    8% { rotate: 16deg; }
+    16% { rotate: -8deg; }
+    24% { rotate: 14deg; }
+    32% { rotate: -4deg; }
+    40% { rotate: 10deg; }
+    48%, 100% { rotate: 0deg; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .chat-fab.show .wave { animation: none; }
+  }
   @media (max-width: 767px) {
     .chat-fab { right: 16px; bottom: 16px; }
   }
