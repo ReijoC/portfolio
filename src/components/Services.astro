@@ -1,0 +1,55 @@
+---
+import content from '../data/content.json';
+import Icon from './Icon.astro';
+---
+<section id="about" class="section">
+  <div class="container">
+    <div class="card services">
+      <div class="section-head">
+        <span class="eyebrow">What I do</span>
+        <h2 class="section-title">Specializing in</h2>
+      </div>
+      <ul class="grid">
+        {content.services.map((s) => (
+          <li>
+            <span class={`icon tone-${s.tone}`}><Icon name={s.icon} /></span>
+            <div>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services { padding: 64px 56px; }
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px 40px;
+  }
+  li { display: flex; gap: 16px; align-items: flex-start; }
+  .icon {
+    flex: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+  }
+  h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  p { margin: 0; }
+
+  @media (max-width: 1023px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 767px) {
+    .services { padding: 40px 24px; }
+    .grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import content from '../data/content.json';
+
+const { featured, moreLabel, moreUrl } = content.projects;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/projects/*.{png,jpg,jpeg}', { eager: true },
+);
+const image = images[`../assets/projects/${featured.image}`]?.default;
+if (!image) throw new Error(`Project image not found: src/assets/projects/${featured.image}`);
+---
+<section id="portfolio" class="section">
+  <div class="container">
+    <div class="card projects">
+      <div class="text">
+        <span class="eyebrow">Portfolios</span>
+        <h2 class="section-title">Latest projects</h2>
+        <h3>{featured.name}</h3>
+        <p>{featured.text}</p>
+        <p class="meta">{featured.role} · {featured.year}</p>
+        <a class="btn btn-primary" href={featured.url || moreUrl}>{moreLabel}</a>
+      </div>
+      <div class="shot">
+        <Picture src={image} alt={featured.alt} formats={['avif', 'webp']}
+          widths={[600, 1200, 2400]} sizes="(max-width: 1023px) 100vw, 640px" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 48px;
+    align-items: center;
+    padding: 56px;
+  }
+  .section-title { margin-bottom: 24px; }
+  h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  p { margin: 0 0 8px; }
+  .meta { font-size: 12px; margin-bottom: 28px; }
+  .shot :global(img) {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: 0 20px 50px rgba(27, 31, 59, 0.15);
+  }
+  @media (max-width: 1023px) {
+    .projects { grid-template-columns: 1fr; padding: 40px 24px; }
+  }
+</style>

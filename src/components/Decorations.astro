@@ -1,0 +1,27 @@
+---
+// Scattered pastel shapes from the mock-up. Purely decorative.
+interface Props { set?: 'a' | 'b' }
+const { set = 'a' } = Astro.props;
+const shapes = set === 'a'
+  ? [
+      { kind: 'tri', top: '12%', left: '6%', color: '#ffab6b', rot: 15 },
+      { kind: 'wave', top: '70%', left: '3%', color: '#a98bff', rot: 0 },
+      { kind: 'dash', top: '20%', left: '92%', color: '#6fd6a0', rot: -30 },
+      { kind: 'diamond', top: '80%', left: '88%', color: '#ff8fab', rot: 0 },
+    ]
+  : [
+      { kind: 'diamond', top: '8%', left: '90%', color: '#7aa8ff', rot: 0 },
+      { kind: 'tri', top: '85%', left: '8%', color: '#ff8fab', rot: -20 },
+      { kind: 'dash', top: '40%', left: '2%', color: '#ffd25c', rot: 40 },
+    ];
+---
+{shapes.map((s) => (
+  <svg class="deco" style={`top:${s.top};left:${s.left};transform:rotate(${s.rot}deg)`}
+    width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" fill="none"
+    stroke={s.color} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    {s.kind === 'tri' && <path d="M14 5l9 16H5z" />}
+    {s.kind === 'diamond' && <path d="M14 4l8 10-8 10-8-10z" />}
+    {s.kind === 'dash' && <path d="M6 14h16" />}
+    {s.kind === 'wave' && <path d="M3 14c3-5 5-5 8 0s5 5 8 0 4-4 6-2" />}
+  </svg>
+))}

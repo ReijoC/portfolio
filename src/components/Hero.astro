@@ -1,0 +1,78 @@
+---
+import content from '../data/content.json';
+import SocialLinks from './SocialLinks.astro';
+import Decorations from './Decorations.astro';
+const { person } = content;
+const base = import.meta.env.BASE_URL;
+---
+<section id="home" class="section hero">
+  <Decorations set="a" />
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow hello"><span>Hello,</span> I'm {person.name}</span>
+      <h1>{person.role}</h1>
+      <p>{person.intro}</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#contact">Hire me</a>
+        <a class="btn btn-outline" href={`${base}${person.cv}`} download>Get CV</a>
+      </div>
+    </div>
+
+    <!-- Photo placeholder: decorative composition until the final visual is decided. -->
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 400" fill="none">
+        <defs>
+          <linearGradient id="hero-g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#a98bff" />
+            <stop offset="1" stop-color="#5b3fd1" />
+          </linearGradient>
+          <linearGradient id="hero-g2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffd3df" />
+            <stop offset="1" stop-color="#f0506e" />
+          </linearGradient>
+        </defs>
+        <circle cx="210" cy="200" r="150" fill="url(#hero-g1)" opacity="0.15" />
+        <circle cx="210" cy="200" r="110" fill="url(#hero-g1)" />
+        <circle cx="300" cy="110" r="38" fill="url(#hero-g2)" />
+        <rect x="70" y="250" width="80" height="80" rx="18" fill="#ffd25c" transform="rotate(-12 110 290)" />
+        <path d="M160 170h100M160 200h70M160 230h85" stroke="#fff" stroke-width="10" stroke-linecap="round" />
+        <path d="M290 300c15-20 30-20 45 0s30 20 45 0" stroke="#6fd6a0" stroke-width="6" stroke-linecap="round" />
+      </svg>
+    </div>
+
+    <div class="hero-social"><SocialLinks vertical /></div>
+  </div>
+</section>
+
+<style>
+  .hero { padding-top: 96px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+    gap: 32px;
+    min-height: 520px;
+  }
+  .hello { font-size: 12px; color: var(--heading); }
+  .hello span { color: var(--accent); }
+  h1 {
+    font-size: clamp(34px, 5vw, 48px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+  }
+  .hero-text p { max-width: 380px; margin: 0 0 32px; }
+  .actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-art svg { width: 100%; max-width: 420px; margin-inline: auto; display: block; }
+
+  @media (max-width: 767px) {
+    .hero { padding-top: 56px; }
+    .hero-grid { grid-template-columns: 1fr; text-align: center; min-height: 0; }
+    .hero-text p { margin-inline: auto; }
+    .actions { justify-content: center; }
+    .hero-art { order: -1; max-width: 260px; margin-inline: auto; }
+    .hero-social { justify-self: center; }
+    .hero-social :global(.social.vertical) { flex-direction: row; padding: 8px 12px; }
+  }
+</style>

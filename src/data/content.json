@@ -1,0 +1,70 @@
+{
+  "site": {
+    "lang": "en",
+    "title": "Your Name | Visual Designer",
+    "description": "Portfolio of Your Name, a visual designer crafting interfaces, brands and illustrations.",
+    "ogImage": "og-image.png"
+  },
+  "person": {
+    "name": "Your Name",
+    "role": "Visual Designer",
+    "intro": "I design clear, friendly digital products and brands that people enjoy using.",
+    "email": "hello@example.com",
+    "cv": "cv.pdf"
+  },
+  "nav": [
+    { "label": "Home", "href": "#home" },
+    { "label": "About", "href": "#about" },
+    { "label": "Portfolios", "href": "#portfolio" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "social": [
+    { "name": "Dribbble", "url": "https://dribbble.com/", "icon": "dribbble" },
+    { "name": "Behance", "url": "https://www.behance.net/", "icon": "behance" },
+    { "name": "X", "url": "https://x.com/", "icon": "x" },
+    { "name": "LinkedIn", "url": "https://www.linkedin.com/", "icon": "linkedin" }
+  ],
+  "services": [
+    { "title": "UI/UX Design", "text": "Research-driven interfaces that are simple to use and pleasant to look at.", "icon": "layout", "tone": "blue" },
+    { "title": "Icon & Illustration", "text": "Custom icon sets and illustrations that give a product its own voice.", "icon": "pen", "tone": "purple" },
+    { "title": "Branding", "text": "Logos, colour and type systems that keep a brand consistent everywhere.", "icon": "star", "tone": "orange" },
+    { "title": "App Design", "text": "Mobile apps designed for small screens, thumbs and real-world use.", "icon": "phone", "tone": "pink" },
+    { "title": "Motion Design", "text": "Micro-interactions and animations that explain and delight.", "icon": "play", "tone": "green" },
+    { "title": "Development", "text": "Fast, accessible front-ends built with modern web standards.", "icon": "code", "tone": "yellow" }
+  ],
+  "skills": [
+    { "name": "Figma", "level": 90, "text": "Design systems, prototyping and hand-off for product teams.", "short": "Fi", "tone": "purple" },
+    { "name": "Illustrator", "level": 80, "text": "Vector illustration, icon design and print-ready artwork.", "short": "Ai", "tone": "orange" },
+    { "name": "Photoshop", "level": 70, "text": "Image editing, retouching and compositing for web and print.", "short": "Ps", "tone": "blue" },
+    { "name": "After Effects", "level": 60, "text": "Motion graphics and UI animation prototypes.", "short": "Ae", "tone": "pink" },
+    { "name": "HTML & CSS", "level": 75, "text": "Responsive, accessible layouts that match the design exactly.", "short": "</>", "tone": "green" },
+    { "name": "Webflow", "level": 65, "text": "Marketing sites built and maintained without heavy code.", "short": "Wf", "tone": "yellow" }
+  ],
+  "projects": {
+    "featured": {
+      "name": "Analytics dashboard",
+      "text": "A clean dashboard for tracking sales and customer activity.",
+      "role": "Product design",
+      "year": 2026,
+      "image": "dashboard-01.png",
+      "alt": "Analytics dashboard with sales charts and customer statistics",
+      "url": ""
+    },
+    "moreLabel": "My portfolios",
+    "moreUrl": "#portfolio"
+  },
+  "education": [
+    { "school": "University of Design", "degree": "MA in Visual Communication", "years": "2020 – 2022", "text": "Focus on interaction design, typography and design research." },
+    { "school": "College of Art", "degree": "BA in Graphic Design", "years": "2017 – 2020", "text": "Branding, editorial design, illustration and print production." },
+    { "school": "Online", "degree": "Front-end Development Certificate", "years": "2023", "text": "HTML, CSS, JavaScript and accessible web development." }
+  ],
+  "testimonials": [
+    { "name": "Jane Cooper", "role": "Product Manager", "quote": "Working together was a joy. The new design doubled our sign-ups within a month, and the hand-off to developers was flawless.", "tone": "pink" },
+    { "name": "Marcus Lee", "role": "Startup Founder", "quote": "From the first sketch to the final brand book, every detail was thought through. Our customers noticed the difference immediately.", "tone": "blue" },
+    { "name": "Sofia Martin", "role": "Marketing Lead", "quote": "Fast, clear communication and beautiful results. I would hire again without hesitation.", "tone": "green" }
+  ],
+  "contact": {
+    "lead": "Have any project in mind?",
+    "cta": "Say hello at"
+  }
+}

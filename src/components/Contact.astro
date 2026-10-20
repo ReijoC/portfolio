@@ -1,0 +1,58 @@
+---
+import content from '../data/content.json';
+import Icon from './Icon.astro';
+const { person, contact } = content;
+---
+<section id="contact" class="section">
+  <div class="container">
+    <div class="card contact">
+      <h2 class="lead">{contact.lead} <strong>{contact.cta}</strong></h2>
+      <div class="mail">
+        <a href={`mailto:${person.email}`}>{person.email}</a>
+        <button type="button" class="copy" data-email={person.email} aria-label="Copy email address">
+          <Icon name="copy" size={18} />
+        </button>
+      </div>
+      <p class="status" role="status"></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact { padding: 64px 24px; text-align: center; }
+  .lead { font-size: 16px; font-weight: 400; color: var(--text); margin-bottom: 12px; }
+  .lead strong { color: var(--heading); font-weight: 600; }
+  .mail { display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .mail a {
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--heading);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .mail a:hover { color: var(--accent); }
+  .copy {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid #d9dbea;
+    background: var(--surface);
+    color: var(--text);
+    display: grid; place-items: center;
+    cursor: pointer;
+  }
+  .copy:hover { color: var(--accent); border-color: var(--accent); }
+  .status { min-height: 1.7em; margin: 8px 0 0; font-size: 12px; color: var(--accent); }
+</style>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.copy[data-email]');
+  const status = document.querySelector<HTMLElement>('.contact .status');
+  btn?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(btn.dataset.email!);
+      if (status) status.textContent = 'Email address copied.';
+    } catch {
+      if (status) status.textContent = 'Copy failed, please select the address manually.';
+    }
+  });
+</script>

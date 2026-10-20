@@ -1,0 +1,140 @@
+---
+import content from '../data/content.json';
+import Icon from './Icon.astro';
+const { testimonials } = content;
+const initials = (name: string) => name.split(/\s+/).map((p) => p[0]).join('').slice(0, 2).toUpperCase();
+---
+<section id="testimonials" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Testimonial</span>
+      <h2 class="section-title">What people say</h2>
+    </div>
+
+    <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Testimonials">
+      <button type="button" class="nav prev" aria-label="Previous testimonial"><Icon name="arrowLeft" /></button>
+      <div class="track" tabindex="0">
+        {testimonials.map((t, i) => (
+          <figure class="card slide" role="group" aria-roledescription="slide"
+            aria-label={`${i + 1} of ${testimonials.length}`}>
+            <span class={`avatar tone-${t.tone}`} aria-hidden="true">{initials(t.name)}</span>
+            <figcaption>
+              <strong>{t.name}</strong>
+              <span>{t.role}</span>
+            </figcaption>
+            <blockquote><p>“{t.quote}”</p></blockquote>
+          </figure>
+        ))}
+      </div>
+      <button type="button" class="nav next" aria-label="Next testimonial"><Icon name="arrowRight" /></button>
+      <div class="dots">
+        {testimonials.map((_, i) => (
+          <button type="button" class="dot" aria-label={`Show testimonial ${i + 1}`}
+            aria-current={i === 0 ? 'true' : undefined}></button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .carousel {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+  }
+  .track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 24px 8px 32px;
+    gap: 16px;
+  }
+  .track::-webkit-scrollbar { display: none; }
+  .slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    margin: 0;
+    padding: 40px 40px 32px;
+    text-align: center;
+  }
+  .avatar {
+    width: 64px; height: 64px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    color: #fff; font-weight: 700; font-size: 20px;
+  }
+  figcaption strong {
+    display: block;
+    color: var(--heading);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+  }
+  figcaption span { color: var(--accent); font-size: 12px; font-weight: 600; }
+  blockquote { margin: 20px 0 0; font-style: italic; }
+  blockquote p { margin: 0; }
+  .nav {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 0;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    color: var(--heading);
+    display: grid; place-items: center;
+    cursor: pointer;
+  }
+  .nav:hover { color: var(--accent); }
+  .dots { grid-column: 1 / -1; display: flex; justify-content: center; gap: 8px; }
+  .dot {
+    width: 10px; height: 10px; padding: 0;
+    border-radius: 50%; border: 0;
+    background: #d9dbea; cursor: pointer;
+  }
+  .dot[aria-current='true'] { background: var(--accent); width: 24px; border-radius: 5px; }
+
+  @media (max-width: 767px) {
+    .carousel { grid-template-columns: 1fr; }
+    .nav { display: none; }
+    .slide { padding: 32px 20px 24px; }
+  }
+</style>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>('.carousel')) {
+    const track = root.querySelector<HTMLElement>('.track')!;
+    const slides = [...track.children] as HTMLElement[];
+    const dots = [...root.querySelectorAll<HTMLButtonElement>('.dot')];
+    const offset = (s: HTMLElement) => s.offsetLeft - slides[0].offsetLeft;
+    const current = () => {
+      let best = 0;
+      slides.forEach((s, i) => {
+        if (Math.abs(offset(s) - track.scrollLeft) < Math.abs(offset(slides[best]) - track.scrollLeft)) best = i;
+      });
+      return best;
+    };
+    const go = (i: number) => {
+      const n = (i + slides.length) % slides.length;
+      track.scrollTo({ left: offset(slides[n]) });
+    };
+    root.querySelector('.prev')!.addEventListener('click', () => go(current() - 1));
+    root.querySelector('.next')!.addEventListener('click', () => go(current() + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(current() - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(current() + 1); }
+    });
+    track.addEventListener('scroll', () => {
+      const i = current();
+      dots.forEach((d, j) => (j === i ? d.setAttribute('aria-current', 'true') : d.removeAttribute('aria-current')));
+    }, { passive: true });
+  }
+</script>
