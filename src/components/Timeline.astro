@@ -1,11 +1,9 @@
 ---
-import Decorations from './Decorations.astro';
 interface Item { org: string; title: string; years: string; text?: string; items?: string[] }
-interface Props { id: string; eyebrow: string; title: string; items: Item[]; deco?: boolean }
-const { id, eyebrow, title, items, deco = false } = Astro.props;
+interface Props { id: string; eyebrow: string; title: string; items: Item[] }
+const { id, eyebrow, title, items } = Astro.props;
 ---
 <section id={id} class="section">
-  {deco && <Decorations set="b" />}
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">{eyebrow}</span>
@@ -15,7 +13,7 @@ const { id, eyebrow, title, items, deco = false } = Astro.props;
       {items.map((e) => (
         <li>
           <span class="dot" aria-hidden="true"></span>
-          <article class="card item">
+          <article class="card spot item">
             <span class="eyebrow">{e.org} · {e.years}</span>
             <h3>{e.title}</h3>
             {e.text && <p>{e.text}</p>}

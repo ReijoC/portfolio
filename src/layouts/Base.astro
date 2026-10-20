@@ -25,11 +25,12 @@ const ogImage = new URL(`${base}${site.ogImage}`, Astro.site).href;
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" />
   </head>
   <body>
+    <div class="progress" aria-hidden="true"></div>
     <slot />
     <script>
       // Reveal blocks as they scroll into view.
       const targets = document.querySelectorAll<HTMLElement>(
-        '.section-head, .hero-text, .hero-art, .card, .steps > li, .timeline > li',
+        '.section-head, .card:not(.skill-card), .steps > li, .timeline > li, .stage',
       );
       const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reduce || !('IntersectionObserver' in window)) {
@@ -38,7 +39,7 @@ const ogImage = new URL(`${base}${site.ogImage}`, Astro.site).href;
         targets.forEach((t) => {
           t.classList.add('reveal');
           const siblings = t.parentElement ? [...t.parentElement.children] : [];
-          t.style.setProperty('--reveal-delay', `${Math.min(siblings.indexOf(t), 6) * 70}ms`);
+          t.style.setProperty('--reveal-delay', `${Math.min(siblings.indexOf(t), 6) * 50}ms`);
         });
         const io = new IntersectionObserver((entries) => {
           for (const e of entries) {
@@ -53,6 +54,15 @@ const ogImage = new URL(`${base}${site.ogImage}`, Astro.site).href;
         }, { rootMargin: '0px 0px -8% 0px' });
         targets.forEach((t) => io.observe(t));
       }
+
+      // Spotlight follows the pointer inside cards.
+      document.querySelectorAll<HTMLElement>('.spot').forEach((el) => {
+        el.addEventListener('pointermove', (e) => {
+          const r = el.getBoundingClientRect();
+          el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+          el.style.setProperty('--my', `${e.clientY - r.top}px`);
+        });
+      });
     </script>
   </body>
 </html>

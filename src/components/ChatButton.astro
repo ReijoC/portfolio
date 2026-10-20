@@ -27,9 +27,10 @@ import Icon from './Icon.astro';
     color: #fff;
     display: grid; place-items: center;
     box-shadow: var(--shadow-accent);
-    transition: transform 0.2s, background-color 0.2s;
+    transition: scale var(--fast) var(--ease-out), background-color var(--fast);
   }
-  .chat:hover { transform: translateY(-2px); background: var(--accent-dark); }
+  .chat:hover { background: var(--accent-dark); }
+  .chat:active { scale: 0.94; }
   .bubble {
     position: relative;
     background: var(--surface);
@@ -41,10 +42,11 @@ import Icon from './Icon.astro';
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(27, 31, 59, 0.15);
     opacity: 0;
-    transform: translateX(10px) scale(0.9);
+    translate: 8px 0;
+    scale: 0.96;
     transform-origin: right center;
     pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.25s var(--ease-out), translate 0.25s var(--ease-out), scale 0.25s var(--ease-out);
   }
   /* Tail pointing at the button. */
   .bubble::after {
@@ -57,7 +59,7 @@ import Icon from './Icon.astro';
     transform: translateY(-50%) rotate(45deg);
     border-radius: 2px;
   }
-  .chat-fab.show .bubble { opacity: 1; transform: none; }
+  .chat-fab.show .bubble { opacity: 1; translate: 0 0; scale: 1; }
   @media (max-width: 767px) {
     .chat-fab { right: 16px; bottom: 16px; }
   }

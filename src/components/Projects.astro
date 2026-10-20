@@ -31,7 +31,7 @@ const projects = await Promise.all(content.projects.map(async (p) => {
 
     <div class="list">
       {projects.map((p, n) => (
-        <article class:list={['card', 'project', { flip: n % 2 }]} id={`projekt-${p.slug}`}>
+        <article class:list={['card', 'spot', 'project', { flip: n % 2 }]} id={`projekt-${p.slug}`}>
           <div class="text">
             <span class="eyebrow">{p.year} · {p.status}</span>
             <h3>{p.name}</h3>
@@ -86,7 +86,7 @@ const projects = await Promise.all(content.projects.map(async (p) => {
     <h3 class="more-title">Muud projektid</h3>
     <div class="more">
       {content.moreProjects.map((m) => (
-        <article class="card mini">
+        <article class="card spot mini">
           <span class="eyebrow">{m.status}</span>
           <h4>{m.name}</h4>
           <p class="sub">{m.subtitle}</p>
@@ -131,8 +131,8 @@ const projects = await Promise.all(content.projects.map(async (p) => {
   .btn { margin-top: 4px; }
 
   .main figure { margin: 0; }
-  .main figure:not([hidden]) { animation: fade-in 0.4s ease; }
-  @keyframes fade-in { from { opacity: 0; transform: scale(0.985); } to { opacity: 1; transform: none; } }
+  .main figure:not([hidden]) { animation: fade-in 0.35s var(--ease-out); }
+  @keyframes fade-in { from { opacity: 0; filter: blur(6px); } }
   .zoom {
     position: relative;
     display: block;
@@ -142,9 +142,11 @@ const projects = await Promise.all(content.projects.map(async (p) => {
     background: none;
     cursor: zoom-in;
     border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(27, 31, 59, 0.06), 0 20px 50px -16px rgba(27, 31, 59, 0.3);
   }
-  .zoom :global(img) { transition: transform 0.4s ease, box-shadow 0.4s ease; }
-  .zoom:hover :global(img) { transform: translateY(-4px); box-shadow: 0 28px 60px rgba(27, 31, 59, 0.22); }
+  .main .zoom :global(img) { box-shadow: none; border-radius: 0; transition: scale 0.5s var(--ease-out); }
+  .zoom:hover :global(img) { scale: 1.025; }
   .zoom-hint {
     position: absolute;
     right: 14px; bottom: 14px;
@@ -155,11 +157,11 @@ const projects = await Promise.all(content.projects.map(async (p) => {
     display: grid; place-items: center;
     box-shadow: var(--shadow);
     opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.25s, transform 0.25s;
+    scale: 0.85;
+    transition: opacity var(--fast) var(--ease-out), scale var(--fast) var(--ease-out);
   }
-  .zoom:hover .zoom-hint, .zoom:focus-visible .zoom-hint { opacity: 1; transform: none; }
-  @media (hover: none) { .zoom-hint { opacity: 1; transform: none; } }
+  .zoom:hover .zoom-hint, .zoom:focus-visible .zoom-hint { opacity: 1; scale: 1; }
+  @media (hover: none) { .zoom-hint { opacity: 1; scale: 1; } }
   .main :global(img) {
     width: 100%;
     aspect-ratio: 16 / 10;
@@ -185,8 +187,9 @@ const projects = await Promise.all(content.projects.map(async (p) => {
     opacity: 0.6;
     transition: opacity 0.2s, border-color 0.2s;
   }
-  .thumbs button:hover { opacity: 1; transform: translateY(-2px); }
-  .thumbs button { transition: opacity 0.2s, border-color 0.2s, transform 0.2s; }
+  .thumbs button:hover { opacity: 1; }
+  .thumbs button:active { scale: 0.96; }
+  .thumbs button { transition: opacity var(--fast), border-color var(--fast), scale var(--fast) var(--ease-out); }
   .thumbs button[aria-pressed='true'] { opacity: 1; border-color: var(--accent); }
   .thumbs :global(img) { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 4px; }
 

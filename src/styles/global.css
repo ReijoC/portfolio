@@ -20,6 +20,9 @@
   --tone-green: linear-gradient(135deg, #c9f4dc, #6fd6a0);
   --tone-yellow: linear-gradient(135deg, #fff1bf, #ffd25c);
 
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --fast: 160ms;
+
   --font: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
@@ -87,6 +90,7 @@ h1, h2, h3 { color: var(--heading); margin: 0; line-height: 1.25; }
 .section-head { text-align: center; margin-bottom: 48px; }
 
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -97,11 +101,11 @@ h1, h2, h3 { color: var(--heading); margin: 0; line-height: 1.25; }
   text-decoration: none;
   border: 1px solid var(--accent);
   cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s, color 0.2s;
+  transition: transform var(--fast) var(--ease-out), background-color var(--fast), color var(--fast), box-shadow var(--fast);
 }
-.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: scale(0.97); }
 .btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-accent); }
-.btn-primary:hover { background: var(--accent-dark); }
+.btn-primary:hover { background: var(--accent-dark); box-shadow: 0 10px 24px -6px rgba(240, 80, 110, 0.55); }
 .btn-outline { background: transparent; color: var(--accent); }
 .btn-outline:hover { background: var(--accent); color: #fff; }
 
@@ -122,27 +126,46 @@ h1, h2, h3 { color: var(--heading); margin: 0; line-height: 1.25; }
   border: 0;
 }
 
-.deco { position: absolute; pointer-events: none; z-index: 0; }
 .section > .container { position: relative; z-index: 1; }
 
-/* Scroll reveal; only hidden when JS has run, so content never stays invisible. */
-.js .reveal:not(.is-visible) { opacity: 0; transform: translateY(28px); }
+/* Scroll reveal: small offset, soft blur, fast ease-out. Hidden only once JS has run. */
+.js .reveal:not(.is-visible) { opacity: 0; translate: 0 14px; filter: blur(6px); }
 .js .reveal {
-  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: opacity 0.6s var(--ease-out), translate 0.6s var(--ease-out), filter 0.6s var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-.card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.project:hover, .mini:hover, .timeline .item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 50px rgba(27, 31, 59, 0.1);
+/* Cards: no lifting, a cursor-following spotlight and a sharper edge on hover. */
+.card { position: relative; transition: box-shadow 0.25s var(--ease-out), outline-color 0.25s var(--ease-out); outline: 1px solid transparent; outline-offset: -1px; }
+.spot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(240, 80, 110, 0.07), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+  pointer-events: none;
 }
+.spot:hover::before { opacity: 1; }
+.spot:hover { outline-color: rgba(240, 80, 110, 0.22); box-shadow: 0 1px 2px rgba(27, 31, 59, 0.04), 0 16px 40px -16px rgba(27, 31, 59, 0.16); }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+/* Thin reading-progress bar driven by scroll position. */
+.progress { display: none; }
+@supports (animation-timeline: scroll()) {
+  .progress {
+    display: block;
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 2px;
+    z-index: 60;
+    background: linear-gradient(90deg, var(--accent), var(--secondary));
+    transform-origin: 0 50%;
+    animation: progress linear both;
+    animation-timeline: scroll(root);
+  }
+  @keyframes progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 }
-.hero-art svg { animation: float 6s ease-in-out infinite; }
 
 @media (max-width: 767px) {
   :root { --section-gap: 72px; }
@@ -151,6 +174,7 @@ h1, h2, h3 { color: var(--heading); margin: 0; line-height: 1.25; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .hero-art .layer, .progress { animation: none !important; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
