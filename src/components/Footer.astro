@@ -6,14 +6,14 @@ import Icon from './Icon.astro';
 <footer class="footer">
   <div class="container inner">
     <SocialLinks />
-    <nav aria-label="Main">
+    <nav aria-label="Peamenüü">
       <ul>
         {content.nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
       </ul>
     </nav>
     <a class="chat" href={`mailto:${content.person.email}`}>
       <Icon name="chat" />
-      <span class="sr-only">Send me a message</span>
+      <span class="sr-only">Saada mulle sõnum</span>
     </a>
   </div>
   <p class="copyright">© {new Date().getFullYear()} {content.person.name}</p>

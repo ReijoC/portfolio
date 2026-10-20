@@ -9,7 +9,7 @@ const { person, contact } = content;
       <h2 class="lead">{contact.lead} <strong>{contact.cta}</strong></h2>
       <div class="mail">
         <a href={`mailto:${person.email}`}>{person.email}</a>
-        <button type="button" class="copy" data-email={person.email} aria-label="Copy email address">
+        <button type="button" class="copy" data-email={person.email} aria-label="Kopeeri e-posti aadress">
           <Icon name="copy" size={18} />
         </button>
       </div>
@@ -50,9 +50,9 @@ const { person, contact } = content;
   btn?.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(btn.dataset.email!);
-      if (status) status.textContent = 'Email address copied.';
+      if (status) status.textContent = 'E-posti aadress on kopeeritud.';
     } catch {
-      if (status) status.textContent = 'Copy failed, please select the address manually.';
+      if (status) status.textContent = 'Kopeerimine ei õnnestunud, vali aadress käsitsi.';
     }
   });
 </script>

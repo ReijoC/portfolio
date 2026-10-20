@@ -7,29 +7,29 @@ const initials = (name: string) => name.split(/\s+/).map((p) => p[0]).join('').s
 <section id="testimonials" class="section">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Testimonial</span>
-      <h2 class="section-title">What people say</h2>
+      <span class="eyebrow">Tagasiside</span>
+      <h2 class="section-title">Mida teised ütlevad</h2>
     </div>
 
-    <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Testimonials">
-      <button type="button" class="nav prev" aria-label="Previous testimonial"><Icon name="arrowLeft" /></button>
+    <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Tagasisided">
+      <button type="button" class="nav prev" aria-label="Eelmine tagasiside"><Icon name="arrowLeft" /></button>
       <div class="track" tabindex="0">
         {testimonials.map((t, i) => (
           <figure class="card slide" role="group" aria-roledescription="slide"
-            aria-label={`${i + 1} of ${testimonials.length}`}>
+            aria-label={`${i + 1} / ${testimonials.length}`}>
             <span class={`avatar tone-${t.tone}`} aria-hidden="true">{initials(t.name)}</span>
             <figcaption>
               <strong>{t.name}</strong>
               <span>{t.role}</span>
             </figcaption>
-            <blockquote><p>“{t.quote}”</p></blockquote>
+            <blockquote><p>„{t.quote}“</p></blockquote>
           </figure>
         ))}
       </div>
-      <button type="button" class="nav next" aria-label="Next testimonial"><Icon name="arrowRight" /></button>
+      <button type="button" class="nav next" aria-label="Järgmine tagasiside"><Icon name="arrowRight" /></button>
       <div class="dots">
         {testimonials.map((_, i) => (
-          <button type="button" class="dot" aria-label={`Show testimonial ${i + 1}`}
+          <button type="button" class="dot" aria-label={`Näita tagasisidet ${i + 1}`}
             aria-current={i === 0 ? 'true' : undefined}></button>
         ))}
       </div>

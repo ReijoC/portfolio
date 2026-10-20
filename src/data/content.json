@@ -1,70 +1,308 @@
 {
   "site": {
-    "lang": "en",
-    "title": "Your Name | Visual Designer",
-    "description": "Portfolio of Your Name, a visual designer crafting interfaces, brands and illustrations.",
+    "lang": "et",
+    "title": "Reijo | Full-stack-arendaja",
+    "description": "Reijo portfoolio: veebirakendused, kasutajaliidesed ja tagarakendused.",
     "ogImage": "og-image.png"
   },
   "person": {
-    "name": "Your Name",
-    "role": "Visual Designer",
-    "intro": "I design clear, friendly digital products and brands that people enjoy using.",
+    "name": "Reijo",
+    "role": "Full-stack-arendaja",
+    "intro": "Ehitan veebirakendusi ideest töötava tooteni: kasutajaliides, andmed, serveripool ja kõik nende vahel.",
     "email": "hello@example.com",
     "cv": "cv.pdf"
   },
   "nav": [
-    { "label": "Home", "href": "#home" },
-    { "label": "About", "href": "#about" },
-    { "label": "Portfolios", "href": "#portfolio" },
-    { "label": "Contact", "href": "#contact" }
+    {
+      "label": "Avaleht",
+      "href": "#home"
+    },
+    {
+      "label": "Minust",
+      "href": "#about"
+    },
+    {
+      "label": "Projektid",
+      "href": "#portfolio"
+    },
+    {
+      "label": "Kontakt",
+      "href": "#contact"
+    }
   ],
   "social": [
-    { "name": "Dribbble", "url": "https://dribbble.com/", "icon": "dribbble" },
-    { "name": "Behance", "url": "https://www.behance.net/", "icon": "behance" },
-    { "name": "X", "url": "https://x.com/", "icon": "x" },
-    { "name": "LinkedIn", "url": "https://www.linkedin.com/", "icon": "linkedin" }
+    {
+      "name": "GitHub",
+      "url": "https://github.com/ReijoC",
+      "icon": "github"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/",
+      "icon": "linkedin"
+    }
   ],
   "services": [
-    { "title": "UI/UX Design", "text": "Research-driven interfaces that are simple to use and pleasant to look at.", "icon": "layout", "tone": "blue" },
-    { "title": "Icon & Illustration", "text": "Custom icon sets and illustrations that give a product its own voice.", "icon": "pen", "tone": "purple" },
-    { "title": "Branding", "text": "Logos, colour and type systems that keep a brand consistent everywhere.", "icon": "star", "tone": "orange" },
-    { "title": "App Design", "text": "Mobile apps designed for small screens, thumbs and real-world use.", "icon": "phone", "tone": "pink" },
-    { "title": "Motion Design", "text": "Micro-interactions and animations that explain and delight.", "icon": "play", "tone": "green" },
-    { "title": "Development", "text": "Fast, accessible front-ends built with modern web standards.", "icon": "code", "tone": "yellow" }
+    {
+      "title": "Veebirakendused",
+      "text": "Ideest avaliku tooteni: arhitektuur, arendus ja avaldamine.",
+      "icon": "layout",
+      "tone": "blue"
+    },
+    {
+      "title": "Kasutajaliidesed",
+      "text": "Selged ja kohanduvad liidesed Reacti ja TypeScriptiga.",
+      "icon": "pen",
+      "tone": "purple"
+    },
+    {
+      "title": "Tagarakendus ja andmed",
+      "text": "Serveriliidesed, andmebaasid, autentimine ja taustatööd.",
+      "icon": "code",
+      "tone": "orange"
+    },
+    {
+      "title": "Kaardid ja 3D",
+      "text": "Geoandmete töötlus, interaktiivsed kaardid ja 3D-vaated brauseris.",
+      "icon": "star",
+      "tone": "pink"
+    },
+    {
+      "title": "PWA ja mobiil",
+      "text": "Installitavad rakendused, mis töötavad ka ilma võrguta.",
+      "icon": "phone",
+      "tone": "green"
+    },
+    {
+      "title": "AI-toega arendus",
+      "text": "Kiired iteratsioonid AI-tööriistadega, kvaliteedikontroll inimese käes.",
+      "icon": "play",
+      "tone": "yellow"
+    }
   ],
   "skills": [
-    { "name": "Figma", "level": 90, "text": "Design systems, prototyping and hand-off for product teams.", "short": "Fi", "tone": "purple" },
-    { "name": "Illustrator", "level": 80, "text": "Vector illustration, icon design and print-ready artwork.", "short": "Ai", "tone": "orange" },
-    { "name": "Photoshop", "level": 70, "text": "Image editing, retouching and compositing for web and print.", "short": "Ps", "tone": "blue" },
-    { "name": "After Effects", "level": 60, "text": "Motion graphics and UI animation prototypes.", "short": "Ae", "tone": "pink" },
-    { "name": "HTML & CSS", "level": 75, "text": "Responsive, accessible layouts that match the design exactly.", "short": "</>", "tone": "green" },
-    { "name": "Webflow", "level": 65, "text": "Marketing sites built and maintained without heavy code.", "short": "Wf", "tone": "yellow" }
-  ],
-  "projects": {
-    "featured": {
-      "name": "Analytics dashboard",
-      "text": "A clean dashboard for tracking sales and customer activity.",
-      "role": "Product design",
-      "year": 2026,
-      "image": "dashboard-01.png",
-      "alt": "Analytics dashboard with sales charts and customer statistics",
-      "url": ""
+    {
+      "name": "TypeScript",
+      "level": 90,
+      "text": "Põhikeel nii kasutajaliidese kui serveripoole jaoks.",
+      "short": "TS",
+      "tone": "blue"
     },
-    "moreLabel": "My portfolios",
-    "moreUrl": "#portfolio"
-  },
+    {
+      "name": "React ja Next.js",
+      "level": 85,
+      "text": "Komponendipõhised liidesed ja täisväärtuslikud veebirakendused.",
+      "short": "Re",
+      "tone": "purple"
+    },
+    {
+      "name": "Node.js",
+      "level": 80,
+      "text": "Serveriliidesed, taustatööde järjekorrad ja integratsioonid.",
+      "short": "No",
+      "tone": "green"
+    },
+    {
+      "name": "PostgreSQL",
+      "level": 75,
+      "text": "Andmemudelid, Drizzle ORM ja Neon.",
+      "short": "Pg",
+      "tone": "orange"
+    },
+    {
+      "name": "Python",
+      "level": 70,
+      "text": "Geoandmete töötlus ja tootmisfailide genereerimine.",
+      "short": "Py",
+      "tone": "yellow"
+    },
+    {
+      "name": "Cloudflare",
+      "level": 75,
+      "text": "Workers, D1 ja R2 kiireks ja odavaks avaldamiseks.",
+      "short": "Cf",
+      "tone": "pink"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "syvamo",
+      "name": "Syvamo",
+      "year": 2026,
+      "role": "Full-stack-arendaja, UI/UX ja geoinfo töötlus",
+      "description": "Eesti ja Soome avaandmetel põhinev veebirakendus personaalse kihilise puidukaardi kujundamiseks, eelvaateks ja DXF-tootmisfailide genereerimiseks.",
+      "text": "Arendasin eesti- ja soomekeelse veebirakenduse, millega saab avaandmete põhjal kujundada personaalse kihilise puidukaardi. Teostasin paigaotsingu, kaardiala valiku ja automaatselt uueneva eelvaate ning Pythonil põhineva DXF-tootmisfailide generaatori koos geomeetria- ja lõigatavuskontrollidega. Lisaks lõin serveriliidesed, taustatööde järjekorra ja tellimuse digitaalse eelkontrolli.",
+      "tech": "JavaScript, Canvas, Node.js, Python, Shapely, pyproj, ezdxf, SQLite ja Cloudflare",
+      "url": "",
+      "status": "Arenduses",
+      "images": [
+        {
+          "file": "syvamo/syvamo-01.png",
+          "caption": "Avaleht ja Võsu ranniku toote eelvaade"
+        },
+        {
+          "file": "syvamo/syvamo-02.png",
+          "caption": "Toote kohandamine"
+        },
+        {
+          "file": "syvamo/syvamo-03.png",
+          "caption": "Kihtide ruumiline eelvaade"
+        },
+        {
+          "file": "syvamo/syvamo-04.png",
+          "caption": "Kyyvesi järveala valimine"
+        }
+      ]
+    },
+    {
+      "slug": "prangelmeister",
+      "name": "Prangelmeister",
+      "year": 2026,
+      "role": "Toote looja ja full-stack-arendaja",
+      "description": "Installitav peastarvutamise veebirakendus astmelise raskusega harjutuste, päevaväljakutsete ja serveris kontrollitavate võistlustulemustega.",
+      "text": "Arendasin peastarvutamise PWA-rakenduse Prangelmeister, kus saab harjutada eri arvutusalasid, osaleda päevaväljakutsetes ja võrrelda serveris kontrollitud tulemusi edetabelis. Teostasin deterministliku TypeScripti mängumootori, kohanduva mänguliidese, autentimise ning PostgreSQL-i andmekihi. Lisasin võrguühenduseta harjutamise, tulemuste statistika ja personaaltreeningu ning automaattestid mängureeglite ja kasutusvoogude kontrollimiseks.",
+      "tech": "Next.js, React, TypeScript, Tailwind CSS, PostgreSQL, Drizzle ORM, Better Auth, IndexedDB, Vitest ja Playwright",
+      "url": "",
+      "status": "Arenduses",
+      "images": [
+        {
+          "file": "prangelmeister/prangelmeister-01.png",
+          "caption": "Avaleht"
+        },
+        {
+          "file": "prangelmeister/prangelmeister-02.png",
+          "caption": "Mänguviiside ja arvutusalade valik"
+        },
+        {
+          "file": "prangelmeister/prangelmeister-03.png",
+          "caption": "Aktiivne mäng ja numbriklahvistik"
+        },
+        {
+          "file": "prangelmeister/prangelmeister-04.png",
+          "caption": "Tulemus ja statistika"
+        }
+      ]
+    },
+    {
+      "slug": "mintego",
+      "name": "Mintego",
+      "year": 2026,
+      "role": "Full-stack-arendaja: kasutajaliides, tagarakendus ja süsteemiarhitektuur",
+      "description": "Kasutatud ja taastatud elektroonika e-poe rakendus otsingu, filtrite, seadmete seisukorrainfo, tootevariantide ja ostukorviga.",
+      "text": "Arendasin kasutatud ja taastatud elektroonika e-poe rakenduse, mis sisaldab filtreeritavat tootekataloogi, seisukorra- ja akuinfot, tootevariantide valikut ning ostukorvi. Lõin Reacti ja TypeScriptiga kasutajaliidese ning PostgreSQLil põhineva tagarakenduse toodete, hinnastuse, laoseisu ja tellimuste jaoks. Valmistasin ette makse- ja tarneliidesed ning lisasin turbe-, SEO- ja ligipääsetavuse kontrollid.",
+      "tech": "React, TypeScript, Vinext/Vite, Tailwind CSS, Neon PostgreSQL, Drizzle ORM, Neon Auth, Cloudflare Workers ja R2",
+      "url": "https://mintego.ee",
+      "status": "Avalik demo",
+      "images": [
+        {
+          "file": "mintego/mintego-01.png",
+          "caption": "Avaleht"
+        },
+        {
+          "file": "mintego/mintego-02.png",
+          "caption": "Tootekataloog, filtrid ja variandid"
+        },
+        {
+          "file": "mintego/mintego-03.png",
+          "caption": "Toote detailvaade"
+        }
+      ]
+    },
+    {
+      "slug": "ifcapp",
+      "name": "QuantRail (IFCApp)",
+      "year": 2026,
+      "role": "Full-stack-arendaja: kasutajaliidese, IFC-töötluse ja hinnastusloogika arendus",
+      "description": "Veebirakendus IFC-ehitusmudelist piirete tuvastamiseks ja mahuarvestuseks, 3D-kontrolliks, hinnastuseks ning kliendipakkumise koostamiseks.",
+      "text": "Arendasin IFC-põhise veebirakenduse piirete mahuarvestuseks ja hinnapakkumiste koostamiseks. Teostasin brauseris töötava IFC-parsingu, piirete tuvastamise ja grupeerimise ning 3D-vaate objektide kontrollimiseks. Lõin projekti hinnastusloogika oma- ja müügihindade, kasumi ja marginaali arvutamiseks ning PDF-ina salvestatava kliendipakkumise.",
+      "tech": "TypeScript, React, Three.js, WebIFC, WebAssembly, Cloudflare D1 ja Drizzle ORM",
+      "url": "",
+      "status": "Näidisprojekt",
+      "images": [
+        {
+          "file": "ifcapp/ifcapp-01.png",
+          "caption": "Projekti ülevaade"
+        },
+        {
+          "file": "ifcapp/ifcapp-02.png",
+          "caption": "Piirete kontroll ja tuvastustõendid"
+        },
+        {
+          "file": "ifcapp/ifcapp-03.png",
+          "caption": "3D-vaate lähivaate makett"
+        },
+        {
+          "file": "ifcapp/ifcapp-04.png",
+          "caption": "Hinnastus ja marginaal"
+        },
+        {
+          "file": "ifcapp/ifcapp-05.png",
+          "caption": "Kliendipakkumine"
+        }
+      ]
+    },
+    {
+      "slug": "kuljekas",
+      "name": "Küljekas",
+      "year": 2026,
+      "role": "Tooteomanik ja AI-toega arenduse juht",
+      "description": "Tuuleteadlik rattamarsruudi planeerija, mis arvestab soovitud distantsi, väljumisaega, tuuleprognoosi ja teevaliku eelistusi.",
+      "text": "Viisin tuuleteadliku rattamarsruudi planeerija idee avaliku veebirakenduseni. Kujundasin kasutusloogika ja funktsionaalsed nõuded, juhtisin AI-toega arendusiteratsioone ning kontrollisin marsruutide kvaliteeti päris kaartidel. Rakendus koostab ja võrdleb treeningringe, arvestab väljumisaja tuuleprognoosi ja teevaliku eelistusi ning kuvab interaktiivsel kaardil sõidusuuna, tuule mõju ja teeliigid. Marsruudi saab eksportida GPX-failina.",
+      "tech": null,
+      "url": "https://kuljekas.ee",
+      "status": "Avalik",
+      "images": [
+        {
+          "file": "kuljekas/kuljekas-01.jpg",
+          "caption": "Marsruudi üldvaade ja tulemus"
+        },
+        {
+          "file": "kuljekas/kuljekas-02.jpg",
+          "caption": "Teeliikide kaart ja tulemus"
+        },
+        {
+          "file": "kuljekas/kuljekas-03.jpg",
+          "caption": "Planeerimisfiltrid ja tulemus"
+        }
+      ]
+    }
+  ],
   "education": [
-    { "school": "University of Design", "degree": "MA in Visual Communication", "years": "2020 – 2022", "text": "Focus on interaction design, typography and design research." },
-    { "school": "College of Art", "degree": "BA in Graphic Design", "years": "2017 – 2020", "text": "Branding, editorial design, illustration and print production." },
-    { "school": "Online", "degree": "Front-end Development Certificate", "years": "2023", "text": "HTML, CSS, JavaScript and accessible web development." }
+    {
+      "school": "Ülikool",
+      "degree": "Eriala või kraad",
+      "years": "2018 – 2021",
+      "text": "Kohatäide: lisa siia oma haridus."
+    },
+    {
+      "school": "Kool",
+      "degree": "Eriala või kraad",
+      "years": "2015 – 2018",
+      "text": "Kohatäide: lisa siia oma haridus."
+    },
+    {
+      "school": "Kursus",
+      "degree": "Täiendkoolitus",
+      "years": "2024",
+      "text": "Kohatäide: lisa siia oma kursused."
+    }
   ],
   "testimonials": [
-    { "name": "Jane Cooper", "role": "Product Manager", "quote": "Working together was a joy. The new design doubled our sign-ups within a month, and the hand-off to developers was flawless.", "tone": "pink" },
-    { "name": "Marcus Lee", "role": "Startup Founder", "quote": "From the first sketch to the final brand book, every detail was thought through. Our customers noticed the difference immediately.", "tone": "blue" },
-    { "name": "Sofia Martin", "role": "Marketing Lead", "quote": "Fast, clear communication and beautiful results. I would hire again without hesitation.", "tone": "green" }
+    {
+      "name": "Nimi Perenimi",
+      "role": "Ametikoht",
+      "quote": "Kohatäide: siia tuleb päris tagasiside koos inimese nõusolekuga.",
+      "tone": "pink"
+    },
+    {
+      "name": "Nimi Perenimi",
+      "role": "Ametikoht",
+      "quote": "Kohatäide: teine tagasiside.",
+      "tone": "blue"
+    }
   ],
   "contact": {
-    "lead": "Have any project in mind?",
-    "cta": "Say hello at"
+    "lead": "Kas sul on projekti idee?",
+    "cta": "Kirjuta mulle"
   }
 }
